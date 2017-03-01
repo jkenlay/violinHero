@@ -1,0 +1,13 @@
+{
+  "name": "violin-hero",
+  "version": "0.0.0",
+  "description": "violinHero",
+  "main": "server.js",
+  "author": {
+    "name": "Jack Kenlay"
+  },
+  "dependencies": {
+    "express": "^4.14.1",
+    "express-generator": "^4.14.0"
+  }
+}
