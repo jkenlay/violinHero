@@ -107,11 +107,11 @@ var testNote5 = new Note("F3s", 100, 100);
 
 
 
-function drawBlockNote(inputNote) {
+function drawBlockNote(positionFromLeft, inputNote) {
     var positionOnStaves = getPositionOfNoteForStaves(inputNote);
     positionOnStaves = positionOnStaves * distanceBetweenNotes;
 
-    drawBlockNoteBody(notePlayMarker,positionOnStaves);
+    drawBlockNoteBody(notePlayMarker + (positionFromLeft * widthBetweenNotes),positionOnStaves);
 }
 
 function drawBlockNoteBody(x,y) {
@@ -359,5 +359,8 @@ gameSong.addNote(testNote3);
 gameSong.addNote(testNote4);
 gameSong.addNote(testNote5);
 
-drawBlockNote(testNote2);
+drawBlockNote(0, testNote1);
+drawBlockNote(1, testNote2);
+drawBlockNote(2, testNote3);
+drawBlockNote(3, testNote4);
 //drawBlockNoteBody(notePlayMarker,210);
