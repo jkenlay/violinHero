@@ -64,7 +64,9 @@ has notes
 each note has position in song!
 
 //THE SONG object will have a silent 400 period note at the start. Then other notes is added to it. which builds up its time.
-//its just a queue? 
+//its just a queue?
+
+//notes could start off blue, then change to red or green depending on score.
 
 */
 var notes = ['B4', 'B4b', 'A4', 'G3s', 'G3', 'F3s', 'F3', 'E3', 'E3b', 'D3', 'C3s', 'C3', 'B3', 'B3b', 'A3', 'G2s', 'G2', 'F2s', 'F2', 'E2', 'E2b', 'D2', 'C2s', 'C2', 'B2', 'B2b', 'A2', 'G1s', 'G1'];
@@ -104,6 +106,20 @@ var testNote4 = new Note("F3", 100, 100);
 var testNote5 = new Note("F3s", 100, 100);
 
 
+
+function drawBlockNote(inputNote) {
+    var positionOnStaves = getPositionOfNoteForStaves(inputNote);
+    positionOnStaves = positionOnStaves * distanceBetweenNotes;
+
+    drawBlockNoteBody(notePlayMarker,positionOnStaves);
+}
+
+function drawBlockNoteBody(x,y) {
+    ctx.beginPath();
+    ctx.fillRect(x, (distanceBetweenNotes * 6) + y, widthBetweenNotes, distanceBetweenNotes*2);
+    ctx.stroke();
+    ctx.closePath();
+}
 
 function drawNote(positionFromLeft, inputNote) {
     var positionOnStaves = getPositionOfNoteForStaves(inputNote);
@@ -343,5 +359,5 @@ gameSong.addNote(testNote3);
 gameSong.addNote(testNote4);
 gameSong.addNote(testNote5);
 
-
-
+drawBlockNote(testNote2);
+//drawBlockNoteBody(notePlayMarker,210);
