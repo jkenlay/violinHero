@@ -10,7 +10,11 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": ""
+    "watch": "nodemon src/app.js",
+    "deploy" :"here i would git pull and then do build to dist",
+    "build":"uglyify js, minimise css, all output to dist",
+    "uglify":"uglifyjs src/violinHero.js -o dist/violinhero.js",
+    "pull-from-git":"git pull origin/master"
   },
   "author": "",
   "license": "ISC"
