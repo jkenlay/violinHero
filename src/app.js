@@ -10,11 +10,11 @@ app.get('/', function (req, res) {
     res.sendFile('views/index.html', { root: __dirname });
 });
 
-app.listen(port, function () {
-    console.log('Example app listening on port 3000!');
-});
-
 app.post('/', function(req, res){
     console.log('update POST calaaled: ' + req);
     res.send('errow');
+});
+
+app.listen(port, function () {
+    console.log('Example app listening on port 3000!');
 });
