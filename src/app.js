@@ -14,6 +14,7 @@ app.listen(port, function () {
     console.log('Example app listening on port 3000!');
 });
 
-app.post('/update', function(req, res){
-    console.log('update POST called');
+app.post('/', function(req, res){
+    console.log('update POST called: ' + req);
+    res.sendFile('views/index.html', { root: __dirname });
 });
