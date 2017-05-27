@@ -16,4 +16,5 @@ app.listen(port, function () {
 
 app.post('/update', function(req, res){
     console.log('update POST called');
+    res.sendFile('views/index.html', { root: __dirname });
 });
