@@ -8,4 +8,4 @@ GIT hook
 Building within the server:
 https://www.npmjs.com/package/npm-run
 
-error
+error 222
