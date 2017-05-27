@@ -11,6 +11,11 @@ app.get('/', function (req, res) {
 });
 
 app.post('/', function(req, res){
+    console.log(' POST calaaled: ' + req);
+    res.send('errow');
+});
+
+app.post('/update', function(req, res){
     console.log('update POST calaaled: ' + req);
     res.send('errow');
 });
