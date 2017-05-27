@@ -2,25 +2,33 @@
 var port = process.env.port || 1337;
 var express = require('express');
 var app = express();
+var createHandler = require('github-webhook-handler');
+var handler = createHandler({ path: '/webhook', secret: '1234567890' });
+
 
 //app.use(express.static(__dirname + '/src'));
 
-app.get('/', function (req, res) {
-    console.log('get request' + __dirname);
-    res.sendFile('views/index.html', { root: __dirname });
-});
+http.createServer(function (req, res) {
+  handler(req, res, function (err) {
+    res.statusCode = 404
+    res.end('no such location')
+  })
+}).listen(7777)
 
-app.post('/', function(req, res){
-    console.log(' POST calaaled: ' + req);
-    res.send('errow');
-});
+handler.on('error', function (err) {
+  console.error('Error:', err.message)
+})
 
-app.post('/update', function(req, res){
-    console.log('update POST calaaled: ' + req);
-    res.send('errow');
-});
+handler.on('push', function (event) {
+  console.log('Received a push event for %s to %s',
+    event.payload.repository.name,
+    event.payload.ref)
+})
 
-app.listen(port, function () {
-    console.log('Example app listening on port 3000!');
-});
-
+handler.on('issues', function (event) {
+  console.log('Received an issue event for %s action=%s: #%d %s',
+    event.payload.repository.name,
+    event.payload.action,
+    event.payload.issue.number,
+    event.payload.issue.title)
+})
