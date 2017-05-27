@@ -1,5 +1,5 @@
 ﻿var http = require('http');
-var port = process.env.port || 1337;
+var port = 3000;
 var express = require('express');
 var app = express();
 var createHandler = require('github-webhook-handler');
@@ -13,7 +13,7 @@ http.createServer(function (req, res) {
     res.statusCode = 404
     res.end('no such location')
   })
-}).listen(7777)
+}).listen(port)
 
 handler.on('error', function (err) {
   console.error('Error:', err.message)
