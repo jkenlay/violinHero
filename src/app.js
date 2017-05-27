@@ -6,7 +6,7 @@ var app = express();
 app.use(express.static(__dirname + '/public'));
 
 app.get('/', function (req, res) {
-    //res.send('Hello World! eee');
+    console.log('get request');
     res.sendFile('views/index.html', { root: __dirname });
 });
 
