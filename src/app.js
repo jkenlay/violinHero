@@ -3,7 +3,7 @@ var port = process.env.port || 1337;
 var express = require('express');
 var app = express();
 var createHandler = require('github-webhook-handler');
-var handler = createHandler({ path: '/webhook', secret: '1234567890' });
+var handler = createHandler({ path: '/update', secret: '1234567890' });
 
 
 //app.use(express.static(__dirname + '/src')); will this work
