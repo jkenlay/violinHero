@@ -13,18 +13,18 @@ http.createServer(function (req, res) {
   handler(req, res, function (err) {
     res.statusCode = 404;
     res.end('no such location');
-  })
+  });
 }).listen(port);
 
 handler.on('error', function (err) {
   console.error('Error:', err.message)
-})
+});
 
 handler.on('push', function (event) {
 //   console.log('Received a push event for %s to %s',event.payload.repository.name,event.payload.ref)
     if(event.payload.ref=='refs/heads/master'){
         console.log('master was pushed, attempting to pull');
-        var cmd = 'sudo git pull && sleep 5s && sudo git pull';
+        var cmd = 'sudo git pull && sleep 5s && sudo git pull && sudo npm install && sleep 5s && echo "restarting nodemon" && rs';
 
         exec(cmd, function(error, stdout, stderr) {
             //command output is in stdout
