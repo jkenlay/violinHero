@@ -2,7 +2,6 @@
 var port = process.env.PORT || 3000;
 var createHandler = require('github-webhook-handler');
 var handler = createHandler({ path: '/update', secret: '1234567890' });
-var router = express.Router();
 
 var exec = require('child_process').exec;
 
@@ -12,40 +11,14 @@ app.use(express.static('dist'));
 
 console.log('restarting');
 
-// http.createServer(function (req, res) {
-//   handler(req, res, function (err) {
-//     console.log('req: ' +req.toString());
-//     res.statusCode = 404;
-//     res.end('no such location');
-//   });
-// }).listen(port); test
+http.createServer(function (req, res) {
+  handler(req, res, function (err) {
+    console.log('req: ' +req.toString());
+    res.statusCode = 404;
+    res.end('no such location');
+  });
+}).listen(port);
 
-router.post('/update', function(req, res, next) {
-        console.log("Webhook received!");
-        console.log(req.body);
-        console.log("Repo is " + req.body.repository.name);
-        console.log("User is " + req.body.actor.username);
-        req.body.push.changes.forEach(function (commit) {
-            console.log("Branch/Tag is " + commit.new.name);
-            console.log("Type is " + commit.new.type);
-        });
-        res.render('index', { title: 'WebHook Info' });
-});
-
-app.get('/', function (req, res) {
-  res.send('Hello World!')
-});
-
-app.post('/', function(req, res) {
-    console.log('aaa');
-    //var name = req.body.name,
-     //   color = req.body.color;
-    // ...aaaaaa
-});
-
-app.listen(3000, function () {
-  console.log('Example app listening on port 3000!')
-});
 
 handler.on('error', function (err) {
   console.error('Error:', err.message)
