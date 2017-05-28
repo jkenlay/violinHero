@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 
 app.post('/update', function (req, res) {
     if (req.body.ref=='refs/heads/master') {//later on, will need to use sha1 and compare to header sent by gh
-        exec('sudo git pull',execCallBack);
+        exec('npm run build-and-deploy',execCallBack);
         res.json({
             message: 'ok got it!'
         });   
