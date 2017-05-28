@@ -30,8 +30,9 @@ div.vague {
 }
 .menu-item{
     display:inline-block;
-    width:50%;
+    width:49%;
     height:100%;
+    text-align:center;
 }
 #detector {
     width: 300px;
