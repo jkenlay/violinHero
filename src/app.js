@@ -17,11 +17,11 @@ http.createServer(function (req, res) {
   if(req.url==='/update'){//rgregrgaaaaaa
       console.log('github update!');
   }
-  handler(req, res, function (err) {
-    console.log('req: ' +req.toString());
-    res.statusCode = 404;
-    res.end('no such location'); //aaa
-  });
+//   handler(req, res, function (err) {
+//     console.log('req: ' +req.toString());
+//     res.statusCode = 404;
+//     res.end('no such location'); //aaa
+//   });
 }).listen(port);
 
 
