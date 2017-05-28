@@ -3,12 +3,17 @@
 console.log('website js loaded');
 
 function sendContactEmail(){
-    console.log('sending email')
+    console.log('sending email');
+    var value = 'hello';
     $.ajax({
         url: "/contactformsubmit",
-        cache: false,
-        success: function(response) {
-            console.log(JSON.stringify(response));
+        type: "post",
+        data: values ,
+        success: function (response) {
+           console.log('success'+JSON.stringify(response));
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+           console.log(textStatus, errorThrown);
         }
-});
+    });
 }
