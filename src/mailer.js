@@ -1,7 +1,7 @@
 /* eslint no-console: 0 */
 
 'use strict';
-const nodemailer = require('../lib/nodemailer');
+const nodemailer = require('nodemailer');
 
 
 // Create a SMTP transporter object
