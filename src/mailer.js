@@ -15,19 +15,15 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-var message = {
-    from: 'Jack Kenlay <jackkenlay@gmail.com>',
-    to: 'jackkenlay@gmail.com',
-    subject: 'Nodemailer test',
-    text: 'Hello World!!'
-}
 
-exports.sendEmail = transporter.sendMail(message, (error, info) => {
-    if (error) {
-        console.log('Email Error occurred');
-        console.log(error.message);
-    }
-    // console.log('Message sent successfully!');
-    // console.log('Server responded with "%s"', info.response);
-    //transporter.close();
-});
+exports.sendEmail = function(message){
+    transporter.sendMail(message, (error, info) => {
+        if (error) {
+            console.log('Email Error occurred');
+            console.log(error.message);
+        }
+        // console.log('Message sent successfully!');
+        // console.log('Server responded with "%s"', info.response);
+        //transporter.close();
+    });
+};
