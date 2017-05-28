@@ -20,28 +20,28 @@ let transporter = nodemailer.createTransport({
 
 
 
-var mailOptions = {
-    from: 'My Name <my.email@gmail.com>',
-    to: 'receiver.email@gmail.com',
+var message = {
+    from: 'My Name <jackkenlay@gmail.com>',
+    to: 'jackkenlay@gmail.com',
     subject: 'Nodemailer test',
     text: 'Hello World!!'
 }
 
-transporter.sendMail(mailOptions, function (err, res) {
-    if(err){
-        console.log('Error');
-    } else {
-        console.log('Email Sent');
-    }
-});
-
-// transporter.sendMail(message, (error, info) => {
-//     if (error) {
-//         console.log('Error occurred');
-//         console.log(error.message);
-//         return;
+// transporter.sendMail(mailOptions, function (err, res) {
+//     if(err){
+//         console.log('Error');
+//     } else {
+//         console.log('Email Sent');
 //     }
-//     console.log('Message sent successfully!');
-//     console.log('Server responded with "%s"', info.response);
-//     transporter.close();
 // });
+
+transporter.sendMail(message, (error, info) => {
+    if (error) {
+        console.log('Error occurred');
+        console.log(error.message);
+        return;
+    }
+    console.log('Message sent successfully!');
+    console.log('Server responded with "%s"', info.response);
+    transporter.close();
+});
