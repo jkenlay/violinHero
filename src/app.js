@@ -9,6 +9,8 @@ var express = require('express');
 var app = express();
 app.use(express.static('dist'));
 
+console.log('as it changed');
+
 http.createServer(function (req, res) {
   handler(req, res, function (err) {
     res.statusCode = 404;
