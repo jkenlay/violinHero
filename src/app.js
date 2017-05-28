@@ -12,6 +12,9 @@ app.use(express.static('dist'));
 console.log('restartaaing');
 
 http.createServer(function (req, res) {
+
+    console.log("req" + req.url);
+
   handler(req, res, function (err) {
     console.log('req: ' +req.toString());
     res.statusCode = 404;
