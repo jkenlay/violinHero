@@ -22,11 +22,11 @@ http.createServer(function (req, res) {
         console.log('req: ' +req.url);
 
 
-          fs.readFile('../dist/index.html', function(err, data) {
-    res.writeHead(200, {'Content-Type': 'text/html'});
-    res.write(data);
-    res.end();
-  });
+    fs.readFile('./../dist/index.html', function(err, data) {
+        res.writeHead(200, {'Content-Type': 'text/html'});
+        res.write(data);
+        res.end();
+    });
     });
 }).listen(port);
 
