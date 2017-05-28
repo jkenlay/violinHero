@@ -24,7 +24,7 @@ handler.on('push', function (event) {
     event.payload.repository.name,
     event.payload.ref)
 
-    if(event.payload.ref==='refs/heads/master'){
+    if(event.payload.ref=='refs/heads/master'){
         console.log('master was pushed');
     }
 })
