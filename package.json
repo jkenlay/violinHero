@@ -12,7 +12,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "watch": "sudo nodemon src/app.js",
+    "watch": "sudo git pull && sudo nodemon src/app.js",
     "build-and-deploy": "npm run pull-from-git && npm run build",
     "build": "uglifyjs src/violinHero.js -o dist/violinhero.js",
     "uglify": "uglifyjs src/violinHero.js -o dist/violinhero.js",
