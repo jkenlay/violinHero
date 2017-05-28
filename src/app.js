@@ -17,7 +17,7 @@ app.post('/update', function (req, res) {
 console.log('post req');
     var body = req.body;
     console.log(' why didnt this work before. git hub hook');
-    console.log('req: ' + JSON.stringify(req));
+    console.log('req: ' + JSON.stringify(req));//iujiuhiuhiuh
     res.json({
         message: 'ok got it!'
     });
