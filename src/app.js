@@ -18,7 +18,7 @@ app.post('/update', function (req, res) {
             message: 'ok got it!'
         });   
     }
-});
+});//test
 
 app.listen(port, function () {
     console.log('Listening for incoming requests');
