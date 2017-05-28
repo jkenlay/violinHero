@@ -16,16 +16,16 @@ http.createServer(function (req, res) {
     console.log("req" + req.url);
   if(req.url==='/update'){//rgregrga
       console.log('github update!');
+        handler(req, res, function (err) {
+    console.log('req: ' +req.toString());
+    res.statusCode = 404;
+    res.end('no such location'); //aaa
+  });
   }else{
       app.get('/', (request, response) => {  
         response.send('Hello from Express!')
         });
   }
-//   handler(req, res, function (err) {
-//     console.log('req: ' +req.toString());
-//     res.statusCode = 404;
-//     res.end('no such location'); //aaa
-//   });
 }).listen(port);
 
 
