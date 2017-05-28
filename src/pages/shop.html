@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -10,8 +10,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/pitchdetect2.js"></script>
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script type="text/javascript" src="js/websitejs.js"></script>
 </head>
 <header>
     <div id='menu'>
@@ -24,39 +24,18 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-xs-1">
-
-            </div>
-            <div class="col-xs-10" style="text-align:center;">
-                <h1>Violin Hero</h1>
-                <p>
-                    <button onclick="this.innerText = togglePlayback()">use demo audio</button>
-                    <button onclick="toggleLiveInput()">use live input</button>
-                    <button onclick="toggleOscillator()">use oscillator</button>
-                    <!--<button onclick="updatePitch(0);">sample</button>-->
-                </p>
-
-                <div id="detector" class="vague">
-                    <div class="pitch"><span id="pitch">--</span>Hz</div>
-                    <div class="note"><span id="note">--</span></div>
-                    <canvas id="output" width=300 height=42></canvas>
-                    <div id="detune"><span id="detune_amt">--</span><span id="flat">cents &#9837;</span><span id="sharp">cents &#9839;</span></div>
-                </div>
-
-            </div>
-            <div class="col-xs-1">
-
-            </div>
+            <h1>Shop</h1>
         </div>
         <div class="row">
-            <div class="col-xs-12" style="text-align:center;">
-                <canvas id="mainCanvas" width="1200" height="500" style="border:4px solid black;"></canvas>
+            <div class='col-xs-12 col-sm-6'>
+                <p>Stagg Electronic Violin</p>
+            </div>
+            <div class='col-xs-12 col-sm-6'>
+                <iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-eu.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=GB&source=ac&ref=qf_sp_asin_til&ad_type=product_link&tracking_id=jkenlay-21&marketplace=amazon&region=GB&placement=B000OR7XFE&asins=B000OR7XFE&linkId=cda9ac53e996987913493bd2640243c6&show_border=true&link_opens_in_new_window=false&price_color=333333&title_color=0066c0&bg_color=ffffff"></iframe>
             </div>
         </div>
      </div>
-    <img id="trebleClef" style="display:none;"src="images/trebleclef.png"/>
     <footer>
-        <script type="text/javascript" src="js/violinhero.js"></script>
         <script>
             (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
             (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
