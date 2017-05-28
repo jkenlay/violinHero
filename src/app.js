@@ -17,7 +17,7 @@ app.post('/update', function (req, res) {
         res.json({
             message: 'ok got it!'
         });   
-    }
+    }//does this work
 });
 
 app.listen(port, function () {
