@@ -14,23 +14,15 @@ var fs = require('fs');
 console.log('restartaaing');//aiuiuiuh
 
 http.createServer(function (req, res) {
-
     console.log("req" + req.url);
-
-
-        handler(req, res, function (err) {
-              if(req.url==='/update'){//rgregrga
-      console.log('github update!');
-              }
-            console.log('req: ' +req.url);
-            res.statusCode = 404;
-            res.end('no such location'); //aaa
-        });
-  
-
-        response.send('Hello from Express!')
-      
-  }
+    handler(req, res, function (err) {
+        if(req.url==='/update'){//rgregrga
+        console.log('github update!');
+        }
+        console.log('req: ' +req.url);
+        res.statusCode = 404;
+        res.end('no such location'); //aaa
+    });
 }).listen(port);
 
 
