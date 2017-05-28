@@ -6,7 +6,7 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 
-app.use(express.static('dist'));
+app.use(express.static(path.join(__dirname, 'dist')));
 app.use(bodyParser.json());
 
 app.post('/update', function (req, res) {
