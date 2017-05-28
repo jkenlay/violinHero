@@ -2,7 +2,10 @@
 
 console.log('website js loaded');
 
-function sendContactEmail(){
+$( document ).ready(function() {
+    console.log( "ready!" );
+
+    function sendContactEmail(){
     console.log('sending email');
     var message = $('#message').value();
     $.ajax({
@@ -18,7 +21,4 @@ function sendContactEmail(){
         }
     });
 }
-
-$( document ).ready(function() {
-    console.log( "ready!" );
 });

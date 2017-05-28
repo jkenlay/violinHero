@@ -19,6 +19,8 @@ maybe write the notes on the circles, just like the image:
 rather than the thing at the bottom, where the note is, after the line, the frequency wangs out past the note and if you're too high it goes above
 and below and colour co:ord and shit maybe?
 
+for videos section, find the highest viewed video with violin hero in the tags on youtube?
+
 sheet music coolour, make it look like dark paper and musical notes
 */
 //line bar can be 20% accross.
