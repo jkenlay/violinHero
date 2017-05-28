@@ -13,7 +13,7 @@ console.log('restarting');
 
 http.createServer(function (req, res) {
   handler(req, res, function (err) {
-    console.log('req: ' +JSON.stringify(req));
+    console.log('req: ' +req.toString());
     res.statusCode = 404;
     res.end('no such location');
   });
