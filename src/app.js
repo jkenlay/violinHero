@@ -4,7 +4,7 @@ var createHandler = require('github-webhook-handler');
 var handler = createHandler({ path: '/update', secret: '1234567890' });
 
 
-//app.use(express.static(__dirdddname + '/src')); will this workaaaaaaaaaaaaaaaa
+//app.use(express.static(__dirdddname + '/src')); will this workaaaaaaaaaaaaaaaaaa
 
 console.log('app.js running');
 
