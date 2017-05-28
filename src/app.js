@@ -26,7 +26,7 @@ console.log('post req');
         message: 'ok got it!'
     });
 });//wefweffeaa
-app.put('/', function (req, res) {
+app.put('/update', function (req, res) {
 console.log('put req');
     var body = req.body;
     var trackingNumber = body.msg.tracking_number;
