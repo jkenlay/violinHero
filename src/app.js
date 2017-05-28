@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 app.post('/update', function (req, res) {
     if (req.body.ref=='refs/heads/master') {//later on, will need to use sha1 and compare to header sent by gh
         //for now it pulls and uglifies, in the future may need to migrate images etc....
-        exec('sudo git pull && uglifyjs src/violinHero.js -o dist/js/violinhero.js && cp src/index.html dist/index.html',execCallBack);
+        exec('sudo git pull && uglifyjs src/violinHero.js -o dist/js/violinhero.js && cp src/index.html dist/index.html && cp -a src/images/. dist/images/ && cp -a src/js/. dist/js/ ',execCallBack);
         res.json({
             message: 'ok got it!'
         });   
