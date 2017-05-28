@@ -24,7 +24,7 @@ console.log('post req');
 
     var cmd = 'sudo git pull && sleep 5s && sudo git pull';
 
-    //exec('',execCallBack);
+    //exec('hello',execCallBack);
 });
 
 var server = app.listen(port, function () {
