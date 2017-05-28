@@ -19,7 +19,7 @@ console.log('post req');
     if(req.body.ref=='refs/heads/master'){//later on, will need to use sha1 and compare to header
         exec('sudo git pull',execCallBack);
         setTimeout(function(){
-            exec('sudo git pull',execCallBack);
+            exec('echo "hi"',execCallBack);
         },5000);
         res.json({
             message: 'ok got it!'
