@@ -17,24 +17,16 @@ app.post('/update', function (req, res) {
 console.log('post req');
     var body = req.body;
     console.log(' why didnt this work before. git hub hook');
-    console.log('req: ' + JSON.stringify(req));//iujiuhiuhiuh
+    console.log(JSON.stringify(req.body));
     res.json({
         message: 'ok got it!'
     });
-});
-app.put('/update', function (req, res) {
-console.log('put req');//iuhiuhuhiuh
-    var body = req.body;
-    var trackingNumber = body.msg.tracking_number;
-    var slug = body.msg.slug;
-    var token = body.msg.unique_token;
 
-    console.log(trackingNumber, slug, token);
+    var cmd = 'sudo git pull && sleep 5s && sudo git pull';
 
-    res.json({
-        message: 'ok got it!'
-    });
+    //exec('',execCallBack);
 });
+
 var server = app.listen(port, function () {
 
     var host = server.address().address
@@ -47,6 +39,15 @@ var server = app.listen(port, function () {
 
 console.log('restartaaaaaing');
 
+
+function execCallBack(err, stdout, stderr){
+    if(stdout){
+        console.log(stdout);
+    }
+    if(stderr){
+        console.log(stderr);
+    }
+}
 // http.createServer(function (req, res) {aaaaaa
 //     console.log("req" + req.url);
 
@@ -66,28 +67,28 @@ console.log('restartaaaaaing');
 // }).listen(port);
 
 
-handler.on('error', function (err) {
-  console.error('Error:', err.message)
-});
+// handler.on('error', function (err) {
+//   console.error('Error:', err.message)
+// });
 
-handler.on('push', function (event) {
-//   console.log('Received a push event for %s to %s',event.payload.repository.name,event.payload.ref)
-    if(event.payload.ref=='refs/heads/master'){
-        console.log('master was pushed, attempting to pull');
-        var cmd = 'sudo git pull && sleep 5s && sudo git pull';
+// handler.on('push', function (event) {
+// //   console.log('Received a push event for %s to %s',event.payload.repository.name,event.payload.ref)
+//     if(event.payload.ref=='refs/heads/master'){
+//         console.log('master was pushed, attempting to pull');
+//         var cmd = 'sudo git pull && sleep 5s && sudo git pull';
 
-        exec(cmd, function(error, stdout, stderr) {
-            //command output is in stdout
-            console.log('from console: ' + stdout);
-        });
-    }
-})
+//         exec(cmd, function(error, stdout, stderr) {
+//             //command output is in stdout
+//             console.log('from console: ' + stdout);
+//         });
+//     }
+// })
 
-handler.on('issues', function (event) {
-    //shouldnt need this but left it for now
-  console.log('Received an issue event for %s action=%s: #%d %s',
-    event.payload.repository.name,
-    event.payload.action,
-    event.payload.issue.number,
-    event.payload.issue.title)
-})
+// handler.on('issues', function (event) {
+//     //shouldnt need this but left it for now
+//   console.log('Received an issue event for %s action=%s: #%d %s',
+//     event.payload.repository.name,
+//     event.payload.action,
+//     event.payload.issue.number,
+//     event.payload.issue.title)
+// })
