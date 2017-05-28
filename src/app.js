@@ -5,7 +5,7 @@ var exec = require('child_process').exec;
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
-var mailertest = require('./mailer.js');
+var emailer = require('./mailer.js');
 
 app.use(express.static('dist'));
 app.use(bodyParser.json());
@@ -27,7 +27,14 @@ app.get('/', function(req, res) {
 });
 app.get('/contactformsubmit', function(req, res) {
     //in future verify with google check thingy
-    
+    console.log('hello');
+    var message = {
+        from: 'Jack Kenlay <jackkenlay@gmail.com>',
+        to: 'jackkenlay@gmail.com',
+        subject: 'Message From: Violin Hero',
+        text: 'Hello World!!'
+    }
+    emailer.sendEmail(message);
 });
 app.listen(port, function () {
     console.log('Listening for incoming requests');
