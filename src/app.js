@@ -25,6 +25,10 @@ app.get('/', function(req, res) {
   //console.log('req.url : ' +req.url);
 
 });
+app.get('/contactformsubmit', function(req, res) {
+    //in future verify with google check thingy
+    
+});
 app.listen(port, function () {
     console.log('Listening for incoming requests');
 });
