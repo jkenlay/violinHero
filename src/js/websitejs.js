@@ -11,6 +11,7 @@ function sendContactEmail(){
         data: values ,
         success: function (response) {
            console.log('success'+JSON.stringify(response));
+            $('#message').prop( "disabled", true );
         },
         error: function(jqXHR, textStatus, errorThrown) {
            console.log(textStatus, errorThrown);
