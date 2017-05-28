@@ -10,6 +10,9 @@ var app = express();
 app.use(express.static('dist'));
 
 
+app.listen(3000, function () {
+  console.log('Example app listening on port 3000!')
+});
 
 app.put('/update', function(request, response) {
   console.log('update');
@@ -24,9 +27,7 @@ app.get('/', function (req, res) {
   res.send('Hello World!')
 });
 
-app.listen(3000, function () {
-  console.log('Example app listening on port 3000!')
-});
+
 console.log('restartaaaaaing');
 
 // http.createServer(function (req, res) {aaaaaa
