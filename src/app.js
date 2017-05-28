@@ -16,12 +16,8 @@ app.use(bodyParser.json());
 app.post('/update', function (req, res) {
 console.log('post req');
     var body = req.body;
-    var trackingNumber = body.msg.tracking_number;
-    var slug = body.msg.slug;
-    var token = body.msg.unique_token;
-
-    console.log(trackingNumber, slug, token);
-
+    console.log(' why didnt this work before. git hub hook');
+    console.log('req: ' + JSON.stringify(req));
     res.json({
         message: 'ok got it!'
     });
