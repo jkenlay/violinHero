@@ -8,8 +8,12 @@ var handler = createHandler({ path: '/update', secret: '1234567890' });
 
 //app.use(express.static(__dirname + '/src')); will this workaaaaaaaaaaaaaaaa
 
+console.log('app.js running');
+
 http.createServer(function (req, res) {
+    console.log('line 12');
   handler(req, res, function (err) {
+        console.log('line 14');
     res.statusCode = 404
     res.end('no such location')
   })
