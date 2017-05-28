@@ -7,7 +7,7 @@ var exec = require('child_process').exec;
 
 var express = require('express');
 var app = express();
-pp.use(express.static('dist'));
+app.use(express.static('dist'));
 
 http.createServer(function (req, res) {
   handler(req, res, function (err) {
