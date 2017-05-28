@@ -14,7 +14,7 @@ app.listen(3000, function () {
   console.log('Example app listening on port 3000!')
 });
 
-app.put('/update', function(request, response) {
+app.put('/update/', function(request, response) {
   console.log('update');
 });
 app.put('/', function(request, response) {
