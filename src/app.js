@@ -23,6 +23,10 @@ handler.on('push', function (event) {
   console.log('Received a push event for %s to %s',
     event.payload.repository.name,
     event.payload.ref)
+
+    if(event.payload.ref==='refs/heads/master'){
+        console.log('master was pushed');
+    }
 })
 
 handler.on('issues', function (event) {
