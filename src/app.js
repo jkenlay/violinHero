@@ -16,8 +16,8 @@ app.use(bodyParser.json());
 app.post('/update', function (req, res) {
 console.log('post req');
     var body = req.body;
-    console.log(' why didnt this work before. git hub hook');
-    console.log(JSON.stringify(req.body));
+    //console.log(' why didnt this work before. git hub hook');
+    //console.log(JSON.stringify(req.body));
     res.json({
         message: 'ok got it!'
     });
@@ -27,14 +27,9 @@ console.log('post req');
     //exec('hello',execCallBack);
 });
 
-var server = app.listen(port, function () {
-
-    var host = server.address().address
-    var port = server.address().port
-
-    console.log('Example app listening at http://%s:%s', host, port)
-
-});
+app.listen(3000, function () {
+  console.log('Example app listening on port 3000!')
+})
 
 
 console.log('restartaaaaaing');
