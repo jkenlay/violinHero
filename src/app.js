@@ -16,6 +16,10 @@ http.createServer(function (req, res) {
     console.log("req" + req.url);
   if(req.url==='/update'){//rgregrga
       console.log('github update!');
+  }else{
+      app.get('/', (request, response) => {  
+        response.send('Hello from Express!')
+        });
   }
 //   handler(req, res, function (err) {
 //     console.log('req: ' +req.toString());
