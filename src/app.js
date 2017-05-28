@@ -11,13 +11,13 @@ app.use(express.static('dist'));
 
 console.log('restarting');
 
-http.createServer(function (req, res) {
-  handler(req, res, function (err) {
-    console.log('req: ' +req.toString());
-    res.statusCode = 404;
-    res.end('no such location');
-  });
-}).listen(port);
+// http.createServer(function (req, res) {
+//   handler(req, res, function (err) {
+//     console.log('req: ' +req.toString());
+//     res.statusCode = 404;
+//     res.end('no such location');
+//   });
+// }).listen(port);
 
 handler.on('error', function (err) {
   console.error('Error:', err.message)
