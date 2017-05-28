@@ -4,15 +4,14 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "express": "^4.14.1",
-    "express-generator": "^4.14.0",
     "github-webhook-handler": "^0.6.0",
-    "nodemon": "^1.11.0"
+    "nodemon": "^1.11.0",
+    "npm-run": "^4.1.2"
   },
   "devDependencies": {},
   "scripts": {
     "watch": "nodemon src/app.js",
-    "deploy": "here i would git pull and then do build to dist",
+    "deploy": "here i would git pull, npm install (incase of new dependencies) and then do build to dist",
     "build": "uglyify js, minimise css, all output to dist",
     "uglify": "uglifyjs src/violinHero.js -o dist/violinhero.js",
     "pull-from-git": "git pull origin/master"
