@@ -15,7 +15,7 @@ app.post('/update', function (req, res) {
         res.json({
             message: 'ok got it!'
         });   
-    }
+    }//uglify test
 });
 
 app.listen(port, function () {
