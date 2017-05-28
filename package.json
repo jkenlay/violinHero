@@ -6,6 +6,7 @@
   "dependencies": {
     "body-parser": "^1.17.2",
     "github-webhook-handler": "^0.6.0",
+    "nodemailer": "^4.0.1",
     "nodemon": "^1.11.0",
     "npm-run": "^4.1.2",
     "uglify-es": "^3.0.12"
