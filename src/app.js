@@ -5,26 +5,31 @@ var handler = createHandler({ path: '/update', secret: '1234567890' });
 
 var exec = require('child_process').exec;
 
-var express = require('express');
-var app = express();
-app.use(express.static('dist'));
+// var express = require('express');
+// var app = express();
+// app.use(express.static('dist'));
+
+var fs = require('fs');
 
 console.log('restartaaing');//aiuiuiuh
 
 http.createServer(function (req, res) {
 
     console.log("req" + req.url);
-  if(req.url==='/update'){//rgregrga
-      console.log('github update!');
+
+
         handler(req, res, function (err) {
-    console.log('req: ' +req.toString());
-    res.statusCode = 404;
-    res.end('no such location'); //aaa
-  });
-  }else{
-      app.get('/', (request, response) => {  
-        response.send('Hello from Express!')
+              if(req.url==='/update'){//rgregrga
+      console.log('github update!');
+              }
+            console.log('req: ' +req.url);
+            res.statusCode = 404;
+            res.end('no such location'); //aaa
         });
+  
+
+        response.send('Hello from Express!')
+      
   }
 }).listen(port);
 
