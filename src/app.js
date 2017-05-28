@@ -1,10 +1,10 @@
 ﻿var http = require('http');
-var port = 7777;
+var port = process.env.PORT || 8080;
 var createHandler = require('github-webhook-handler');
 var handler = createHandler({ path: '/update', secret: '1234567890' });
 
 
-console.log('app.js running');
+console.log('app.js running on port: ' + port);
 
 http.createServer(function (req, res) {
     console.log('line 12');
