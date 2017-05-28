@@ -23,7 +23,7 @@ app.get('/', function (req, res) {
   res.send('Hello World!')
 });
 
-app.post('/update', function(req, res) {
+app.post('/', function(req, res) {
     console.log('aaa');
     //var name = req.body.name,
      //   color = req.body.color;
