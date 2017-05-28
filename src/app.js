@@ -1,7 +1,5 @@
 ﻿var http = require('http');
 var port = 3000;
-var express = require('express');
-var app = express();
 var createHandler = require('github-webhook-handler');
 var handler = createHandler({ path: '/update', secret: '1234567890' });
 
