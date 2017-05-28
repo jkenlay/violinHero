@@ -9,6 +9,9 @@ body {
 .droptarget {
     background-color: #348781;
 }
+.amazon-frame{
+    text-align: center;
+}
 
 div.confident {
     color: black;
