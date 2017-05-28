@@ -16,61 +16,22 @@ let transporter = nodemailer.createTransport({
         accessToken: 'ya29.GltYBJ4_Q4SL0MkEVP3NfE34Xmc28QK3ViQwc-X99TEq8ZuHBWVqxFi8oLfaJqRBbW4DW9dKV44ncPS209JYkb9M1pA2rV6mLpk_szCPYjVz6YCU9YQ7SJYsbuya',
         expires: 12345
     }
-}, {
-    from: 'Testbox <andristestbox@gmail.com>',
-    headers: {
-        'X-Laziness-level': 1000 // just an example header, no need to use this
-    }
 });
 
 console.log('SMTP Configured');
 
-// Message object
 let message = {
 
-    // Comma separated list of recipients
     to: 'Andris Reinman <jackkenlay@gmail.com>',
 
-    // Subject of the message
-    subject: 'Nodemailer is unicode friendly ✔ #', //
+    subject: 'Nodemailer is unicode friendly ✔ #', 
 
-    // plaintext body
     text: 'Hello to myself!',
 
-    // HTML body
     html: '<p><b>Hello</b> to myself <img src="cid:note@example.com"/></p>' +
         '<p>Here\'s a nyan cat for you as an embedded attachment:<br/><img src="cid:nyan@example.com"/></p>',
 
-    // Apple Watch specific HTML body
-    watchHtml: '<b>Hello</b> to myself',
-
-    // An array of attachments
-    attachments: [
-
-        // String attachment
-        {
-            filename: 'notes.txt',
-            content: 'Some notes about this e-mail',
-            contentType: 'text/plain' // optional, would be detected from the filename
-        },
-
-        // Binary Buffer attachment
-        {
-            filename: 'image.png',
-            content: new Buffer('iVBORw0KGgoAAAANSUhEUgAAABAAAAAQAQMAAAAlPW0iAAAABlBMVEUAAAD/' +
-                '//+l2Z/dAAAAM0lEQVR4nGP4/5/h/1+G/58ZDrAz3D/McH8yw83NDDeNGe4U' +
-                'g9C9zwz3gVLMDA/A6P9/AFGGFyjOXZtQAAAAAElFTkSuQmCC', 'base64'),
-
-            cid: 'note@example.com' // should be as unique as possible
-        },
-
-        // File Stream attachment
-        {
-            filename: 'nyan cat ✔.gif',
-            path: __dirname + '/assets/nyan.gif',
-            cid: 'nyan@example.com' // should be as unique as possible
-        }
-    ]
+    watchHtml: '<b>Hello</b> to myself', 
 };
 
 console.log('Sending Mail');
