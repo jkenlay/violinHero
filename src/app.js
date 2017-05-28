@@ -1,5 +1,5 @@
 ﻿var http = require('http');
-var port = 3000;
+var port = 80;
 var express = require('express');
 var app = express();
 var createHandler = require('github-webhook-handler');
