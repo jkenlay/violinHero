@@ -20,8 +20,7 @@ http.createServer(function (req, res) {
             console.log('github update!');
         }
         console.log('req: ' +req.url);
-        res.statusCode = 404;
-        res.end('no such location'); //aaa
+
 
           fs.readFile('../dist/index.html', function(err, data) {
     res.writeHead(200, {'Content-Type': 'text/html'});
