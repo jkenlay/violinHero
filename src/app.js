@@ -21,7 +21,7 @@ app.post('/update', function (req, res) {
 /* GET users listing. */
 app.get('/', function(req, res) {
   //res.send('respond with a resource');
-  console.log('req.url : ' +req.url);
+  //console.log('req.url : ' +req.url);
 
 });
 app.listen(port, function () {
