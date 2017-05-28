@@ -10,7 +10,7 @@ var app = express();
 var bodyParser = require('body-parser');
 
 app.use(express.static('dist'));
-app.use(bodyParser.json());
+//app.use(bodyParser.json());
 
 app.post('/update', function (req, res) {
     if (req.body.ref=='refs/heads/master') {//later on, will need to use sha1 and compare to header sent by gh
