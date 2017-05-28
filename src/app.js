@@ -34,6 +34,9 @@ app.post('/contactformsubmit', function(req, res) {
         text: 'Hello World!!'
     }
     emailer.sendEmail(message);
+    res.json({
+        message: 'ok got it!'
+    }); 
 });
 app.listen(port, function () {
     console.log('Listening for incoming requests');
