@@ -16,14 +16,12 @@ app.use(bodyParser.json());
 app.post('/update', function (req, res) {
 console.log('post req');
 
-    if(req.body.ref=='refs/heads/master'){
-        console.log('github wek')///iuhiuhiuhiuh
+    if(req.body.ref=='refs/heads/master'){//later on, will need to use sha1 and compare to header
+        exec('sudo git pull',execCallBack);
+        res.json({
+            message: 'ok got it!'
+        });   
     }
-    //console.log(' why didnt this work before. git hub hook');
-    //console.log(JSON.stringify(req.body));ddd
-    res.json({
-        message: 'ok got it!'
-    });
 
     var cmd = 'sudo git pull && sleep 5s && sudo git pull';
 
