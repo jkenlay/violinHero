@@ -1,12 +1,12 @@
 ﻿var http = require('http');
-var port = 80;
+var port = 3000;
 var express = require('express');
 var app = express();
 var createHandler = require('github-webhook-handler');
 var handler = createHandler({ path: '/update', secret: '1234567890' });
 
 
-//app.use(express.static(__dirname + '/src')); will this work
+//app.use(express.static(__dirname + '/src')); will this workaaaaaaa
 
 http.createServer(function (req, res) {
   handler(req, res, function (err) {
