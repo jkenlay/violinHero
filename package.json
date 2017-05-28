@@ -12,8 +12,8 @@
   },
   "devDependencies": {},
   "scripts": {
-    "watch": "sudo git pull && sudo nodemon src/app.js",
-    "build-and-deploy": "pull-from-git && build",
+    "watch": "sudo git pull && sudo nodemon --delay 10 src/app.js",
+    "build-and-deploy": "npm run pull-from-git && npm run build",
     "build": "uglifyjs src/violinHero.js -o dist/violinhero.js",
     "uglify": "uglifyjs src/violinHero.js -o dist/violinhero.js",
     "pull-from-git": "sudo git pull origin"
