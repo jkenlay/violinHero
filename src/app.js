@@ -15,7 +15,10 @@ app.use(bodyParser.json());
 
 app.post('/update', function (req, res) {
 console.log('post req');
-    var body = req.body;
+
+    if(req.body.ref=='refs/heads/master'){
+        console.log('github wek')
+    }
     //console.log(' why didnt this work before. git hub hook');
     //console.log(JSON.stringify(req.body));ddd
     res.json({
