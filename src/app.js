@@ -5,7 +5,7 @@ var handler = createHandler({ path: '/update', secret: '1234567890' });
 
 var exec = require('child_process').exec;
 
-console.log('app.js running on port: ' + port);
+console.log('app.js running on port: ' + port);//test
 
 http.createServer(function (req, res) {
   handler(req, res, function (err) {
