@@ -20,7 +20,7 @@ console.log('post req');
         exec('sudo git pull',execCallBack);
         setTimeout(function(){
             exec('sudo git pull',execCallBack);
-        },5000);//here we go
+        },5000);
         res.json({
             message: 'ok got it!'
         });   
