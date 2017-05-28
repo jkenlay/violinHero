@@ -34,7 +34,7 @@ var transporter = nodemailer.createTransport({
 })
 
 var message = {
-    from: 'My Name <jackkenlay@gmail.com>',
+    from: 'Jack Kenlay <jackkenlay@gmail.com>',
     to: 'jackkenlay@gmail.com',
     subject: 'Nodemailer test',
     text: 'Hello World!!'
