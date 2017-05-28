@@ -2,33 +2,38 @@
 var port = process.env.PORT || 3000;
 var createHandler = require('github-webhook-handler');
 var handler = createHandler({ path: '/update', secret: '1234567890' });
-
+var url = require('url');
 var exec = require('child_process').exec;
 
-// var express = require('express');
-// var app = express();
-// app.use(express.static('dist'));
-
-var fs = require('fs');
-
-console.log('restartaaing');
-
-http.createServer(function (req, res) {
-    console.log("req" + req.url);
-    handler(req, res, function (err) {
-        if (req.url==='/update') {
-            console.log('github update!');
-        }
-        console.log('req: ' +req.url);
+var express = require('express');
+var app = express();
+app.use(express.static('dist'));
 
 
-    fs.readFile('./../dist/index.html', function(err, data) {
-        res.writeHead(200, {'Content-Type': 'text/html'});
-        res.write(data);
-        res.end();
-    });
-    });
-}).listen(port);
+
+app.put('/update', function(request, response) {
+  console.log('update');
+});
+
+console.log('restartaaaaaing');
+
+// http.createServer(function (req, res) {
+//     console.log("req" + req.url);
+
+//     fs.readFile('./../dist/index.html', function(err, data) {
+//         res.writeHead(200, {'Content-Type': 'text/html'});
+//         res.write(data);
+//         res.end();
+//     });
+
+//     handler(req, res, function (err) {
+//         if (req.url==='/update') {
+//             console.log('github update!');
+//         }
+//         console.log('req: ' +req.url);
+
+//     });
+// }).listen(port);
 
 
 handler.on('error', function (err) {
