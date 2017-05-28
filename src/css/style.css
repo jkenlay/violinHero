@@ -28,6 +28,11 @@ div.vague {
     display:inline-block;
     height:50px;
 }
+.menu-item{
+    display:inline-block;
+    width:50%;
+    height:100%;
+}
 #detector {
     width: 300px;
     height: 300px;
