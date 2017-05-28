@@ -6,7 +6,8 @@
   "dependencies": {
     "github-webhook-handler": "^0.6.0",
     "nodemon": "^1.11.0",
-    "npm-run": "^4.1.2"
+    "npm-run": "^4.1.2",
+    "uglify-es": "^3.0.12"
   },
   "devDependencies": {},
   "scripts": {
