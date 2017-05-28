@@ -23,6 +23,13 @@ app.get('/', function (req, res) {
   res.send('Hello World!')
 });
 
+app.post('/update', function(req, res) {
+    console.log('aaa');
+    //var name = req.body.name,
+     //   color = req.body.color;
+    // ...
+});
+
 app.listen(3000, function () {
   console.log('Example app listening on port 3000!')
 });
