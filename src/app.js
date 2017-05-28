@@ -8,19 +8,13 @@ var exec = require('child_process').exec;
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
-//app.use(express.static('dist'));
 
-
+app.use(express.static('dist'));
 app.use(bodyParser.json());
 
 app.post('/update', function (req, res) {
-console.log('post req');
-
-    if(req.body.ref=='refs/heads/master'){//later on, will need to use sha1 and compare to header
+    if (req.body.ref=='refs/heads/master') {//later on, will need to use sha1 and compare to header sent by gh
         exec('sudo git pull',execCallBack);
-        setTimeout(function(){
-            exec('echo "hi"',execCallBack);
-        },5000);//uhiuhiuhiu
         res.json({
             message: 'ok got it!'
         });   
