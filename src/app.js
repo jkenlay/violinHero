@@ -1,7 +1,5 @@
 ﻿var http = require('http');
 var port = process.env.PORT || 3000;
-var createHandler = require('github-webhook-handler');
-var handler = createHandler({ path: '/update', secret: '1234567890' });
 var url = require('url');
 var exec = require('child_process').exec;
 var express = require('express');
