@@ -2,6 +2,7 @@
 var port = process.env.PORT || 3000;
 var createHandler = require('github-webhook-handler');
 var handler = createHandler({ path: '/update', secret: '1234567890' });
+var router = express.Router();
 
 var exec = require('child_process').exec;
 
@@ -18,6 +19,18 @@ console.log('restarting');
 //     res.end('no such location');
 //   });
 // }).listen(port); test
+
+router.post('/update', function(req, res, next) {
+        console.log("Webhook received!");
+        console.log(req.body);
+        console.log("Repo is " + req.body.repository.name);
+        console.log("User is " + req.body.actor.username);
+        req.body.push.changes.forEach(function (commit) {
+            console.log("Branch/Tag is " + commit.new.name);
+            console.log("Type is " + commit.new.type);
+        });
+        res.render('index', { title: 'WebHook Info' });
+});
 
 app.get('/', function (req, res) {
   res.send('Hello World!')
