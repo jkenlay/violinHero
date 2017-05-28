@@ -15,9 +15,7 @@ let transporter = nodemailer.createTransport({
         refreshToken: '1/VJVvKRYio_WkKp3Lci8w8zlAW2ljjhVrG30KLiEUNIM',
         accessToken: 'ya29.GltYBJ4_Q4SL0MkEVP3NfE34Xmc28QK3ViQwc-X99TEq8ZuHBWVqxFi8oLfaJqRBbW4DW9dKV44ncPS209JYkb9M1pA2rV6mLpk_szCPYjVz6YCU9YQ7SJYsbuya',
         expires: 12345
-    },
-    logger,
-    debug: false // dont include SMTP traffic in the logs
+    }
 }, {
     from: 'Testbox <andristestbox@gmail.com>',
     headers: {
