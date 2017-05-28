@@ -5,7 +5,7 @@ var handler = createHandler({ path: '/update', secret: '1234567890' });
 
 var exec = require('child_process').exec;
 
-console.log('app.js running on port: ' + port);//test
+console.log('app.js running on port: ' + port);
 
 http.createServer(function (req, res) {
   handler(req, res, function (err) {
@@ -25,8 +25,8 @@ handler.on('push', function (event) {
         var cmd = 'sudo git pull';
 
         exec(cmd, function(error, stdout, stderr) {
-        // command output is in stdout
-        console.log('from console: ' + stdout);
+            //command output is in stdout
+            console.log('from console: ' + stdout);
         });
     }
 })
