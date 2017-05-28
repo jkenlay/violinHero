@@ -5,6 +5,7 @@ var exec = require('child_process').exec;
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
+var mailertest = require('mailer.js');
 
 app.use(express.static('dist'));
 app.use(bodyParser.json());
