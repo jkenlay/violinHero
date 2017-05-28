@@ -14,6 +14,12 @@ app.use(express.static('dist'));
 app.put('/update', function(request, response) {
   console.log('update');
 });
+app.put('/', function(request, response) {
+  console.log('update');
+});
+app.put('*', function(request, response) {
+  console.log('uaaapdate');
+});
 app.get('/', function (req, res) {
   res.send('Hello World!')
 });
