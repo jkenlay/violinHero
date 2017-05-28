@@ -3,33 +3,28 @@ var port = process.env.PORT || 3000;
 var createHandler = require('github-webhook-handler');
 var handler = createHandler({ path: '/update', secret: '1234567890' });
 
-
-console.log('app.js running on port: ' + port);//aaaanew branch
+console.log('app.js running on port: ' + port);
 
 http.createServer(function (req, res) {
-    console.log('line 12');
   handler(req, res, function (err) {
-        console.log('line 14');
-    res.statusCode = 404
-    res.end('no such location')
+    res.statusCode = 404;
+    res.end('no such location');
   })
-}).listen(port)
+}).listen(port);
 
 handler.on('error', function (err) {
   console.error('Error:', err.message)
 })
 
 handler.on('push', function (event) {
-  console.log('Received a push event for %s to %s',
-    event.payload.repository.name,
-    event.payload.ref)
-
+//   console.log('Received a push event for %s to %s',event.payload.repository.name,event.payload.ref)
     if(event.payload.ref=='refs/heads/master'){
         console.log('master was pushed');
     }
 })
 
 handler.on('issues', function (event) {
+    //shouldnt need this but left it for now
   console.log('Received an issue event for %s action=%s: #%d %s',
     event.payload.repository.name,
     event.payload.action,
