@@ -1,16 +1,22 @@
 "use strict";
 
-console.log('website js loaded');
-
 function sendContactEmail(){
-    console.log('sending email');
+    var name = $('#name').val();
     var message = $('#message').val();
+    var sendersEmail = $('#email').val();
+    var subject = $('#subject').val();
+    var contactMessage = {
+        name:name,
+        message:message,
+        sendersEmail:sendersEmail,
+        subject:subject,
+    }
     $.ajax({
         url: "/contactformsubmit",
         type: "post",
         data: message ,
         success: function (response) {
-           console.log('success'+JSON.stringify(response));
+            $('#submitButton').text('Sent!');
             $('#message').prop( "disabled", true );
         },
         error: function(jqXHR, textStatus, errorThrown) {
