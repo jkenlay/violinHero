@@ -8,7 +8,7 @@ function sendContactEmail(){
     $.ajax({
         url: "/contactformsubmit",
         type: "post",
-        data: values ,
+        data: message ,
         success: function (response) {
            console.log('success'+JSON.stringify(response));
             $('#message').prop( "disabled", true );
