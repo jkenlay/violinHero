@@ -7,24 +7,45 @@ var exec = require('child_process').exec;
 
 var express = require('express');
 var app = express();
-app.use(express.static('dist'));
+var bodyParser = require('body-parser');
+//app.use(express.static('dist'));
 
 
-app.listen(3000, function () {
-  console.log('Example app listening on port 3000!')
-});
+app.use(bodyParser.json());
 
-app.put('/update/', function(request, response) {
-  console.log('update');
+app.post('/', function (req, res) {
+console.log('post req');
+    var body = req.body;
+    var trackingNumber = body.msg.tracking_number;
+    var slug = body.msg.slug;
+    var token = body.msg.unique_token;
+
+    console.log(trackingNumber, slug, token);
+
+    res.json({
+        message: 'ok got it!'
+    });
 });
-app.put('/', function(request, response) {
-  console.log('update');
+app.put('/', function (req, res) {
+console.log('put req');
+    var body = req.body;
+    var trackingNumber = body.msg.tracking_number;
+    var slug = body.msg.slug;
+    var token = body.msg.unique_token;
+
+    console.log(trackingNumber, slug, token);
+
+    res.json({
+        message: 'ok got it!'
+    });
 });
-app.put('*', function(request, response) {
-  console.log('uaaapdate');
-});
-app.get('/', function (req, res) {
-  res.send('Hello World!')
+var server = app.listen(port, function () {
+
+    var host = server.address().address
+    var port = server.address().port
+
+    console.log('Example app listening at http://%s:%s', host, port)
+
 });
 
 
