@@ -14,7 +14,7 @@ console.log('restartaaing');
 http.createServer(function (req, res) {
 
     console.log("req" + req.url);
-  if(req.url==='/update'){//rgregrgaaaaaa
+  if(req.url==='/update'){//rgregrga
       console.log('github update!');
   }
 //   handler(req, res, function (err) {
