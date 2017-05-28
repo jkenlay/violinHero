@@ -18,7 +18,11 @@ app.post('/update', function (req, res) {
         });   
     }
 });
-
+/* GET users listing. */
+router.get('/', function(req, res) {
+  res.send('respond with a resource');
+  console.log('req.url : ' +req.url);
+});
 app.listen(port, function () {
     console.log('Listening for incoming requests');
 });
