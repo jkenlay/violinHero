@@ -7,6 +7,8 @@ var exec = require('child_process').exec;
 
 console.log('app.js running on port: ' + port);
 
+console.log('it should have changed now');
+
 http.createServer(function (req, res) {
   handler(req, res, function (err) {
     res.statusCode = 404;
