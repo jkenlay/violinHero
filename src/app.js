@@ -11,7 +11,7 @@ var exec = require('child_process').exec;
 
 var fs = require('fs');
 
-console.log('restartaaing');//aiuiuiuh
+console.log('restartaaing');
 
 http.createServer(function (req, res) {
     console.log("req" + req.url);
