@@ -23,7 +23,7 @@ console.log('post req');
         });   
     }
 
-    var cmd = 'sudo git pull && sleep 5s && sudo git pull';
+    //var cmd = 'sudo git pull && sleep 5s && sudo git pull';
 
     //exec('hello',execCallBack);
 });
