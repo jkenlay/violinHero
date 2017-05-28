@@ -25,9 +25,8 @@ app.get('/', function(req, res) {
   //console.log('req.url : ' +req.url);
 
 });
-app.get('/contactformsubmit', function(req, res) {
+app.post('/contactformsubmit', function(req, res) {
     //in future verify with google check thingy
-    console.log('hello');
     var message = {
         from: 'Jack Kenlay <jackkenlay@gmail.com>',
         to: 'jackkenlay@gmail.com',
