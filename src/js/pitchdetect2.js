@@ -43,14 +43,14 @@ window.onload = function() {
 	audioContext = new AudioContext();
 	MAX_SIZE = Math.max(4,Math.floor(audioContext.sampleRate/5000));	// corresponds to a 5kHz signal
 	var request = new XMLHttpRequest();
-	//request.open("GET", "../sounds/whistling3.ogg", true);
-	request.responseType = "arraybuffer";
-	request.onload = function() {
-	  audioContext.decodeAudioData( request.response, function(buffer) { 
-	    	theBuffer = buffer;
-		} );
-	}
-	request.send();
+	// request.open("GET", "../sounds/whistling3.ogg", true);
+	// request.responseType = "arraybuffer";
+	// request.onload = function() {
+	//   audioContext.decodeAudioData( request.response, function(buffer) { 
+	//     	theBuffer = buffer;
+	// 	} );
+	// }
+	// request.send();
 
 	detectorElem = document.getElementById( "detector" );
 	canvasElem = document.getElementById( "output" );
