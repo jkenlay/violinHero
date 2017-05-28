@@ -28,25 +28,19 @@
         <div class="row">
             <div>
                 <form name="contactform">
+                    <label for="fname">Name</label>
+                    <input type="text" id="fname" name="firstname" placeholder="Name">
 
-                    <label for="fname">First Name</label>
-                    <input type="text" id="fname" name="firstname" placeholder="Your name..">
-
-                    <label for="lname">Last Name</label>
-                    <input type="text" id="lname" name="lastname" placeholder="Your last name..">
-
-                    <label for="country">Country</label>
-                    <select id="country" name="country">
-                    <option value="australia">Australia</option>
-                    <option value="canada">Canada</option>
-                    <option value="usa">USA</option>
-                    </select>
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Email">
 
                     <label for="subject">Subject</label>
-                    <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+                    <textarea id="subject" name="subject" placeholder="Subject" style="height:200px"></textarea>
+
+                    <label for="message">Message</label>
+                    <input type="text" id="message" name="message" placeholder="message">
 
                     <button onclick="sendContactEmail()">Submit2</button>
-
                 </form>
             </div>
         </div>

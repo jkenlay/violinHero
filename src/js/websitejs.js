@@ -4,7 +4,7 @@ console.log('website js loaded');
 
 function sendContactEmail(){
     console.log('sending email');
-    var value = 'hello';
+    var message = $('#message').value();
     $.ajax({
         url: "/contactformsubmit",
         type: "post",
