@@ -23,7 +23,11 @@ div.vague {
     height: 180px;
     text-align: left;
 }
-
+#menu{
+    width:100%;
+    display:inline-block;
+    height:50px;
+}
 #detector {
     width: 300px;
     height: 300px;
