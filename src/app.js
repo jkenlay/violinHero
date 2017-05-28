@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 
 app.post('/update', function (req, res) {
     if (req.body.ref=='refs/heads/master') {//later on, will need to use sha1 and compare to header sent by gh
-        exec('uglifyjs src/violinHero.js -o dist/js/violinhero.js',execCallBack);
+        exec('sudo git pull && uglifyjs src/violinHero.js -o dist/js/violinhero.js',execCallBack);
         res.json({
             message: 'ok got it!'
         });   
