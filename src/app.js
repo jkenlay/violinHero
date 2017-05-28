@@ -27,7 +27,7 @@ console.log('post req');
     });
 });
 app.put('/update', function (req, res) {
-console.log('put req');
+console.log('put req');//iuhiuhuhiuh
     var body = req.body;
     var trackingNumber = body.msg.tracking_number;
     var slug = body.msg.slug;
