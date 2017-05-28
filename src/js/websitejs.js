@@ -2,12 +2,9 @@
 
 console.log('website js loaded');
 
-$( document ).ready(function() {
-    console.log( "ready!" );
-
-    function sendContactEmail(){
+function sendContactEmail(){
     console.log('sending email');
-    var message = $('#message').value();
+    var message = $('#message').val();
     $.ajax({
         url: "/contactformsubmit",
         type: "post",
@@ -21,4 +18,3 @@ $( document ).ready(function() {
         }
     });
 }
-});
