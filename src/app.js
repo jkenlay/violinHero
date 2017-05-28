@@ -7,7 +7,7 @@ var exec = require('child_process').exec;
 
 console.log('app.js running on port: ' + port);
 
-console.log('it should have changed now.. TO THIS'); //test
+console.log('it should have changed now.. TO THIS'); //testaaa
 
 http.createServer(function (req, res) {
   handler(req, res, function (err) {
