@@ -16,8 +16,8 @@ console.log('restartaaing');//aiuiuiuh
 http.createServer(function (req, res) {
     console.log("req" + req.url);
     handler(req, res, function (err) {
-        if(req.url==='/update'){//rgregrga
-        console.log('github update!');
+        if (req.url==='/update') {
+            console.log('github update!');
         }
         console.log('req: ' +req.url);
         res.statusCode = 404;
