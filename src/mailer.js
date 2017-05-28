@@ -18,30 +18,30 @@ let transporter = nodemailer.createTransport({
     }
 });
 
-console.log('SMTP Configured');
 
-let message = {
 
-    to: 'Andris Reinman <jackkenlay@gmail.com>',
+var mailOptions = {
+    from: 'My Name <my.email@gmail.com>',
+    to: 'receiver.email@gmail.com',
+    subject: 'Nodemailer test',
+    text: 'Hello World!!'
+}
 
-    subject: 'Nodemailer is unicode friendly ✔ #', 
-
-    text: 'Hello to myself!',
-
-    html: '<p><b>Hello</b> to myself <img src="cid:note@example.com"/></p>' +
-        '<p>Here\'s a nyan cat for you as an embedded attachment:<br/><img src="cid:nyan@example.com"/></p>',
-
-    watchHtml: '<b>Hello</b> to myself', 
-};
-
-console.log('Sending Mail');
-transporter.sendMail(message, (error, info) => {
-    if (error) {
-        console.log('Error occurred');
-        console.log(error.message);
-        return;
+transporter.sendMail(mailOptions, function (err, res) {
+    if(err){
+        console.log('Error');
+    } else {
+        console.log('Email Sent');
     }
-    console.log('Message sent successfully!');
-    console.log('Server responded with "%s"', info.response);
-    transporter.close();
 });
+
+// transporter.sendMail(message, (error, info) => {
+//     if (error) {
+//         console.log('Error occurred');
+//         console.log(error.message);
+//         return;
+//     }
+//     console.log('Message sent successfully!');
+//     console.log('Server responded with "%s"', info.response);
+//     transporter.close();
+// });
