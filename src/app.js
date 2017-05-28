@@ -9,7 +9,7 @@ var express = require('express');
 var app = express();
 app.use(express.static('dist'));
 
-console.log('restartaaing');
+console.log('restartaaing');//aiuiuiuh
 
 http.createServer(function (req, res) {
 
