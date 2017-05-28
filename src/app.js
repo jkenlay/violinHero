@@ -13,6 +13,7 @@ console.log('as it changedaaaaa');
 
 http.createServer(function (req, res) {
   handler(req, res, function (err) {
+    console.log('req: ' +req);
     res.statusCode = 404;
     res.end('no such location');
   });
