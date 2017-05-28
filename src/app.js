@@ -13,7 +13,7 @@ var bodyParser = require('body-parser');
 
 app.use(bodyParser.json());
 
-app.post('/', function (req, res) {
+app.post('/update', function (req, res) {
 console.log('post req');
     var body = req.body;
     var trackingNumber = body.msg.tracking_number;
