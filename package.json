@@ -9,7 +9,8 @@
     "nodemailer": "^4.0.1",
     "nodemon": "^1.11.0",
     "npm-run": "^4.1.2",
-    "uglify-es": "^3.0.12"
+    "uglify-es": "^3.0.12",
+    "xoauth2": "^1.2.0"
   },
   "devDependencies": {},
   "scripts": {
