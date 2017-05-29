@@ -360,7 +360,7 @@ drawTrebleClef();
 // gameSong.addNote(testNote5);
 
 // drawBlockNote(0, testNote1);
-// drawBlockNote(1, testNote2);
+// drawBlockNote(1, testNote2);//
 // drawBlockNote(2, testNote3);
 // drawBlockNote(3, testNote4);
 //drawBlockNoteBody(notePlayMarker,210);
