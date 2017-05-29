@@ -74,6 +74,8 @@ each note has position in song!
 var notes = ['B4', 'B4b', 'A4', 'G3s', 'G3', 'F3s', 'F3', 'E3', 'E3b', 'D3', 'C3s', 'C3', 'B3', 'B3b', 'A3', 'G2s', 'G2', 'F2s', 'F2', 'E2', 'E2b', 'D2', 'C2s', 'C2', 'B2', 'B2b', 'A2', 'G1s', 'G1'];
 var notesForStaves = ['B4', 'A4', 'G3', 'F3', 'E3', 'D3', 'C3', 'B3', 'A3', 'G2', 'F2', 'E2', 'D2', 'C2', 'B2', 'A2', 'G1'];
 
+const Note = require('./note.js');
+
 var c = document.getElementById('mainCanvas');
 var ctx = c.getContext('2d');
 var canvasHeight = c.getAttribute('height');
@@ -100,15 +102,6 @@ var widthBetweenNotes = (canvasWidth-notePlayMarker) / notesOnScreenWidthways; /
 //treble cleff
 var img = document.getElementById("trebleClef");
 
-//test vars
-// var testNote1 = new Note("B4", 100, 100);
-// var testNote2 = new Note("A4", 100, 100);
-// var testNote3 = new Note("G3", 100, 100);
-// var testNote4 = new Note("F3", 100, 100);
-// var testNote5 = new Note("F3s", 100, 100);
-
-
-
 function drawBlockNote(positionFromLeft, inputNote) {
     var positionOnStaves = getPositionOfNoteForStaves(inputNote);
     positionOnStaves = positionOnStaves * distanceBetweenNotes;
@@ -133,75 +126,6 @@ function drawNote(positionFromLeft, inputNote) {
     inputNote.lowerDuration();
 }
 
-//song object
-/*
-function Song() {
-    console.log("new song object");
-    var noteArray = [];    
-    this.addNote = function (inputNote) {
-        console.log("add note");
-        if (noteArray.length == 0) {
-            inputNote.setStartPositionInSong(0);
-        } else {
-            //since not the first note, change input note duration to 99 (instead of 100 so it fits)
-            var newNoteStartPosition = noteArray[noteArray.length - 1].getFinishPositionInSong + 1;
-            var newNoteDuration = (inputNote.getDuration - 1);
-
-            inputNote.setDuration(newNoteDuration);
-            inputNote.setStartPositionInSong(newNoteStartPosition);
-        }
-        noteArray.push(inputNote);
-    }
-}
-*/
-/*
-function Note(inputNote, inputDuration, inputHealth) {
-    var startPositionInSong;
-    var finishPositionInSong;
-    if((!verifyValidNote(inputNote))||(inputNote==null)) {
-        throw "note is not valid";
-    }
-    this.note = inputNote;
-    this.duration = inputDuration;
-    this.health = inputHealth;
-    this.initialDuration = inputDuration;
-    this.getNote = function () {
-        return this.note;
-    },
-        this.getDuration = function () {
-            return this.duration;
-        },
-        this.lowerDuration = function () {
-            this.duration--;
-        },
-        this.getHealth = function () {
-            return this.health;
-        },
-        this.draw = function () {
-            if (this.initialDuration > 100) { //if minim
-
-            } else { //else crochet
-
-            }
-        },
-        this.setStartPositionInSong = function (inputStartPosition) {
-            this.startPositionInSong = inputStartPosition;
-            this.finishPositionInSong = inputStartPosition + this.duration;
-        },
-        this.getStartPositionInSong = function () {
-            return this.startPositionInSong;
-        },
-        this.setFinishPositionInSong = function (inputFinishPosition) {
-            this.finishPositionInSong = inputFinishPosition;
-        },
-        this.getFinishPositionInSong = function () {
-            return this.finishPositionInSong;
-        },
-        this.setDuration = function (inputNewDuration) {
-            this.duration = inputNewDuration;
-        }
-};
-*/
 function getPositionOfNoteForStaves(inputNote) {
     var position = -1;
     var noteToGet = inputNote.getNote().replace(new RegExp("[a-z]", "g"), '');
@@ -330,6 +254,21 @@ function drawCrotchet(x, y) {
     fillCrochetOval(x, y);
 }
 
+drawStaves();
+drawLeftMarker();
+drawLeftMarkerCenterLine();
+drawNotePlayMarker();
+drawTrebleClef();
+
+var testNote1 = new Note('B3','10');
+
+//test vars
+// var testNote1 = new Note("B4", 100, 100);
+// var testNote2 = new Note("A4", 100, 100);
+// var testNote3 = new Note("G3", 100, 100);
+// var testNote4 = new Note("F3", 100, 100);
+// var testNote5 = new Note("F3s", 100, 100);
+
 // var loopTimingvar = setInterval(loopTimer, 250);
 // var notePositionBuffer = 0;
 // function loopTimer() {
@@ -340,12 +279,6 @@ function drawCrotchet(x, y) {
 //     //console.log(songDrawingTimer);
 //     //songDrawingTimer++; 
 // }
-
-drawStaves();
-drawLeftMarker();
-drawLeftMarkerCenterLine();
-drawNotePlayMarker();
-drawTrebleClef();
 
 //drawNote(0, testNote1);
 //drawNote(1, testNote2);
@@ -364,3 +297,74 @@ drawTrebleClef();
 // drawBlockNote(2, testNote3);
 // drawBlockNote(3, testNote4);
 //drawBlockNoteBody(notePlayMarker,210);
+
+
+//song object
+/*
+function Song() {
+    console.log("new song object");
+    var noteArray = [];    
+    this.addNote = function (inputNote) {
+        console.log("add note");
+        if (noteArray.length == 0) {
+            inputNote.setStartPositionInSong(0);
+        } else {
+            //since not the first note, change input note duration to 99 (instead of 100 so it fits)
+            var newNoteStartPosition = noteArray[noteArray.length - 1].getFinishPositionInSong + 1;
+            var newNoteDuration = (inputNote.getDuration - 1);
+
+            inputNote.setDuration(newNoteDuration);
+            inputNote.setStartPositionInSong(newNoteStartPosition);
+        }
+        noteArray.push(inputNote);
+    }
+}
+*/
+/*
+function Note(inputNote, inputDuration, inputHealth) {
+    var startPositionInSong;
+    var finishPositionInSong;
+    if((!verifyValidNote(inputNote))||(inputNote==null)) {
+        throw "note is not valid";
+    }
+    this.note = inputNote;
+    this.duration = inputDuration;
+    this.health = inputHealth;
+    this.initialDuration = inputDuration;
+    this.getNote = function () {
+        return this.note;
+    },
+        this.getDuration = function () {
+            return this.duration;
+        },
+        this.lowerDuration = function () {
+            this.duration--;
+        },
+        this.getHealth = function () {
+            return this.health;
+        },
+        this.draw = function () {
+            if (this.initialDuration > 100) { //if minim
+
+            } else { //else crochet
+
+            }
+        },
+        this.setStartPositionInSong = function (inputStartPosition) {
+            this.startPositionInSong = inputStartPosition;
+            this.finishPositionInSong = inputStartPosition + this.duration;
+        },
+        this.getStartPositionInSong = function () {
+            return this.startPositionInSong;
+        },
+        this.setFinishPositionInSong = function (inputFinishPosition) {
+            this.finishPositionInSong = inputFinishPosition;
+        },
+        this.getFinishPositionInSong = function () {
+            return this.finishPositionInSong;
+        },
+        this.setDuration = function (inputNewDuration) {
+            this.duration = inputNewDuration;
+        }
+};
+*/
