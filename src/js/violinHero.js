@@ -74,8 +74,6 @@ each note has position in song!
 var notes = ['B4', 'B4b', 'A4', 'G3s', 'G3', 'F3s', 'F3', 'E3', 'E3b', 'D3', 'C3s', 'C3', 'B3', 'B3b', 'A3', 'G2s', 'G2', 'F2s', 'F2', 'E2', 'E2b', 'D2', 'C2s', 'C2', 'B2', 'B2b', 'A2', 'G1s', 'G1'];
 var notesForStaves = ['B4', 'A4', 'G3', 'F3', 'E3', 'D3', 'C3', 'B3', 'A3', 'G2', 'F2', 'E2', 'D2', 'C2', 'B2', 'A2', 'G1'];
 
-const Note = require('./note.js');
-
 var c = document.getElementById('mainCanvas');
 var ctx = c.getContext('2d');
 var canvasHeight = c.getAttribute('height');
