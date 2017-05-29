@@ -17,4 +17,3 @@ class Note {
         return this.note;
     }
 }
-module.exports = Note;
