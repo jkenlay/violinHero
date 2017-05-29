@@ -1,5 +1,5 @@
 class Song {
-    constructor(inputNotes) {
+    constructor(inputNotes = []) {
         this.notes = inputNotes;//array of notes
     }
     getTotalDuration() {
