@@ -259,6 +259,9 @@ drawNotePlayMarker();
 drawTrebleClef();
 
 var testNote1 = new Note('B3','10');
+var testNote1 = new Note('G3','10');
+
+var song = new Song();
 
 //test vars
 // var testNote1 = new Note("B4", 100, 100);
