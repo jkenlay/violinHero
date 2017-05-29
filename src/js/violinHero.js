@@ -347,20 +347,4 @@ drawLeftMarkerCenterLine();
 drawNotePlayMarker();
 drawTrebleClef();
 
-//drawNote(0, testNote1);
-//drawNote(1, testNote2);
-//drawNote(2, testNote3);
-//drawNote(3, testNote4);
-//drawNote(4, testNote5);
 
-// gameSong.addNote(testNote1);
-// gameSong.addNote(testNote2);
-// gameSong.addNote(testNote3);
-// gameSong.addNote(testNote4);
-// gameSong.addNote(testNote5);
-
-// drawBlockNote(0, testNote1);
-// drawBlockNote(1, testNote2);
-// drawBlockNote(2, testNote3);
-// drawBlockNote(3, testNote4);
-//drawBlockNoteBody(notePlayMarker,210);
