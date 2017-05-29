@@ -95,17 +95,17 @@ var notesOnScreenWidthways = 4;
 var widthBetweenNotes = (canvasWidth-notePlayMarker) / notesOnScreenWidthways; //width ways
 
 //song
-var gameSong = new Song();
+//var gameSong = new Song();
 
 //treble cleff
 var img = document.getElementById("trebleClef");
 
 //test vars
-var testNote1 = new Note("B4", 100, 100);
-var testNote2 = new Note("A4", 100, 100);
-var testNote3 = new Note("G3", 100, 100);
-var testNote4 = new Note("F3", 100, 100);
-var testNote5 = new Note("F3s", 100, 100);
+// var testNote1 = new Note("B4", 100, 100);
+// var testNote2 = new Note("A4", 100, 100);
+// var testNote3 = new Note("G3", 100, 100);
+// var testNote4 = new Note("F3", 100, 100);
+// var testNote5 = new Note("F3s", 100, 100);
 
 
 
@@ -134,6 +134,7 @@ function drawNote(positionFromLeft, inputNote) {
 }
 
 //song object
+/*
 function Song() {
     console.log("new song object");
     var noteArray = [];    
@@ -152,7 +153,8 @@ function Song() {
         noteArray.push(inputNote);
     }
 }
-
+*/
+/*
 function Note(inputNote, inputDuration, inputHealth) {
     var startPositionInSong;
     var finishPositionInSong;
@@ -199,7 +201,7 @@ function Note(inputNote, inputDuration, inputHealth) {
             this.duration = inputNewDuration;
         }
 };
-
+*/
 function getPositionOfNoteForStaves(inputNote) {
     var position = -1;
     var noteToGet = inputNote.getNote().replace(new RegExp("[a-z]", "g"), '');
@@ -328,20 +330,16 @@ function drawCrotchet(x, y) {
     fillCrochetOval(x, y);
 }
 
-function loopTimer() {
+// var loopTimingvar = setInterval(loopTimer, 250);
+// var notePositionBuffer = 0;
+// function loopTimer() {
+//    // increaseSongTimer();
+// }
 
-}
-
-var loopTimingvar = setInterval(loopTimer, 250);
-var notePositionBuffer = 0;
-function loopTimer() {
-   // increaseSongTimer();
-}
-
-function increaseSongTimer() {
-    //console.log(songDrawingTimer);
-    //songDrawingTimer++; 
-}
+// function increaseSongTimer() {
+//     //console.log(songDrawingTimer);
+//     //songDrawingTimer++; 
+// }
 
 drawStaves();
 drawLeftMarker();
@@ -355,14 +353,14 @@ drawTrebleClef();
 //drawNote(3, testNote4);
 //drawNote(4, testNote5);
 
-gameSong.addNote(testNote1);
-gameSong.addNote(testNote2);
-gameSong.addNote(testNote3);
-gameSong.addNote(testNote4);
-gameSong.addNote(testNote5);
+// gameSong.addNote(testNote1);
+// gameSong.addNote(testNote2);
+// gameSong.addNote(testNote3);
+// gameSong.addNote(testNote4);
+// gameSong.addNote(testNote5);
 
-drawBlockNote(0, testNote1);
-drawBlockNote(1, testNote2);
-drawBlockNote(2, testNote3);
-drawBlockNote(3, testNote4);
+// drawBlockNote(0, testNote1);
+// drawBlockNote(1, testNote2);
+// drawBlockNote(2, testNote3);
+// drawBlockNote(3, testNote4);
 //drawBlockNoteBody(notePlayMarker,210);
