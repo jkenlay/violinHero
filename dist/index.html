@@ -10,67 +10,17 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="libs/pitchdetect2.js"></script>
-    
-    <style>
-        body {
-            font: 14pt 'Alike', sans-serif;
-        }
-
-        #note {
-            font-size: 164px;
-        }
-
-        .droptarget {
-            background-color: #348781;
-        }
-
-        div.confident {
-            color: black;
-        }
-
-        div.vague {
-            color: lightgrey;
-        }
-
-        #note {
-            display: inline-block;
-            height: 180px;
-            text-align: left;
-        }
-
-        #detector {
-            width: 300px;
-            height: 300px;
-            border: 4px solid gray;
-            border-radius: 8px;
-            text-align: center;
-            padding-top: 10px;
-            display:none;
-        }
-
-        #output {
-            width: 300px;
-            height: 42px;
-        }
-
-        #flat {
-            display: none;
-        }
-
-        #sharp {
-            display: none;
-        }
-
-        .flat #flat {
-            display: inline;
-        }
-
-        .sharp #sharp {
-            display: inline;
-        }
-    </style>
+    <script type="text/javascript" src="js/pitchdetect2.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
+<header>
+    <div id='menu'>
+        <a class='menu-item' href='/index.html'>Game</a>
+        <a class='menu-item' href='/videos.html'>Videos</a>
+        <a class='menu-item' href='/shop.html'>Shop</a>
+        <a class='menu-item' href='/contactus.html'>Contact Us</a>
+    </div>
+</header>
 <body>
     <div class="container">
         <div class="row">
@@ -78,11 +28,11 @@
 
             </div>
             <div class="col-xs-10" style="text-align:center;">
-                <h1> center</h1>
+                <h1>Violin Hero</h1>
                 <p>
-                    <button onclick="this.innerText = togglePlayback()">use demo audio</button>
-                    <button onclick="toggleLiveInput()">use live input</button>
-                    <button onclick="toggleOscillator()">use oscillator</button>
+                    <!--<button onclick="this.innerText = togglePlayback()">use demo audio</button>-->
+                    <button onclick="toggleLiveInput(); $(this).slideUp(500);">Start</button>
+                    <!--<button onclick="toggleOscillator()">use oscillator</button>-->
                     <!--<button onclick="updatePitch(0);">sample</button>-->
                 </p>
 
@@ -104,9 +54,19 @@
             </div>
         </div>
      </div>
-    <img id="trebleClef" style="display:none;"src="img/trebleclef.png"/>
+    <img id="trebleClef" style="display:none;"src="images/trebleclef.png"/>
     <footer>
-        <script type="text/javascript" src="libs/violinHero.js"></script>
+        <script type="text/javascript" src="js/note.js"></script>
+        <script type="text/javascript" src="js/song.js"></script>
+        <script type="text/javascript" src="js/violinHero.js"></script>
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+            ga('create', 'UA-100042758-1', 'auto');
+            ga('send', 'pageview');
+        </script>
     </footer>
 </body>
 </html>
