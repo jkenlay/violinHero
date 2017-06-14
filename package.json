@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "body-parser": "^1.17.2",
+    "forever": "^0.15.3",
     "github-webhook-handler": "^0.6.0",
     "nodemailer": "^4.0.1",
     "nodemon": "^1.11.0",
@@ -21,8 +22,10 @@
     "uglify": "uglifyjs src/violinHero.js -o dist/violinhero.js",
     "pull-from-git": "sudo git pull origin",
     "local": "uglifyjs src/js/websitejs.js -o dist/js/websitejs.js && uglifyjs src/js/violinHero.js -o dist/js/violinHero.js  && uglifyjs src/js/note.js -o dist/js/note.js && uglifyjs src/js/pitchdetect2.js -o dist/js/pitchdetect2.js&& cp src/index.html dist/index.html && cp -a src/images/. dist/images/ && cp -a src/css/. dist/css/ && cp -a src/pages/. dist/ && cp -a src/js/. dist/js/ && node src/app.js",
-    "start": "npm run local && node src/app.js",
-    "dev-watch": "nodemon --exec npm start"
+    "start": "sudo forever node src/app.js",
+    "dev-watch": "nodemon --exec npm start",
+    "restart": "sudo forever restart src/app.js",
+    "stop": ""
   },
   "author": "",
   "license": "ISC"
