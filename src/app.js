@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 
 app.post('/update', function (req, res) {
     if (req.body.ref=='refs/heads/master') {//later on, will need to use sha1 and compare to header sent by gh
-        //for now it pulls and uglifies, in the future may need to uglify css?..
+        //for now it pulls and uglifies, in the future may need to uglify css?
         if(req.body.commits.message){
                     console.log('Commit: ' + req.body.commits.message);
         }
