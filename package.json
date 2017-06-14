@@ -25,7 +25,7 @@
     "start": "sudo forever src/app.js",
     "dev-watch": "nodemon --exec npm start",
     "restart": "sudo forever restart src/app.js",
-    "stop": ""
+    "stop": "forever stopall"
   },
   "author": "",
   "license": "ISC"
