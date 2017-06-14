@@ -16,7 +16,7 @@ app.post('/update', function (req, res) {
         if(req.body.commits.message){
                     console.log('Commit: ' + req.body.commits.message);
         }
-        exec('sudo git pull && sudo nodemon --delay 10 src/app.js',execCallBack);
+        exec('sudo git pull && sudo node npm restart src/app.js',execCallBack);
         res.json({
             message: 'ok got it!'
         });   
