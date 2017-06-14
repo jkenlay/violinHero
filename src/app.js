@@ -18,7 +18,7 @@ app.post('/update', function (req, res) {
         }
         exec('sudo git pull && sudo node restart src/app.js',execCallBack);
         res.json({
-            message: 'ok go!t it!'
+            message: 'ok go!t ity!'
         });   
     }
 });
