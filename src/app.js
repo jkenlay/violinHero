@@ -16,7 +16,7 @@ app.post('/update', function (req, res) {
         if(req.body.commits.message){
                     console.log('Commit: ' + req.body.commits.message);
         }
-        exec('sudo git pull && sudo npm install && sleep 3s && uglifyjs src/js/websitejs.js -o dist/js/websitejs.js && uglifyjs src/js/violinHero.js -o dist/js/violinHero.js  && uglifyjs src/js/note.js -o dist/js/note.js && uglifyjs src/js/pitchdetect2.js -o dist/js/pitchdetect2.js&& sudo cp src/index.html dist/index.html && sudo cp -a src/images/. dist/images/ && sudo cp -a src/css/. dist/css/ && sudo cp -a src/pages/. dist/ && sudo cp -a src/js/. dist/js/ && echo "fininshed scripts"',execCallBack);
+        exec('sudo git pull && sudo nodemon --delay 10 src/app.js',execCallBack);
         res.json({
             message: 'ok got it!'
         });   
