@@ -31,21 +31,21 @@ class Note {
 
 
             
-                    //sharp
-            console.log(this.note)
+            //sharp
             if(this.note.toString().indexOf('s')>-1){
                 console.log('note is a sharp')
                 ctx.fillStyle = "black";
-                ctx.font = "12px Arial";
-                ctx.fillText("#",x+20,y+20);
+                ctx.font = "30px Arial";
+                ctx.fillText("#",x+10,y+30);
             }
 
             //flat
             if(this.note.toString().indexOf('b')>-1){
-                console.log('note is a flat')
+                console.log('SHOULD DRAW B')
                 ctx.fillStyle = "black";
-                ctx.font = "12px Arial";
-                ctx.fillText("b",x+20,y+20);
+                ctx.font = "30px Arial";
+                console.log(y,x)
+                ctx.fillText("b",x+10,y+30);
             }
         }
 
