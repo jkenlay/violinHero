@@ -15,7 +15,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "watch": "sudo git pull && sudo nodemon --delay 10 src/app.js",
+    "watch": "sudo nodemon -- src/app.js",
     "build-and-deploy": "npm run pull-from-git && npm run build",
     "build": "uglifyjs src/violinHero.js -o dist/violinhero.js",
     "deploy": "uglifyjs src/js/websitejs.js -o dist/js/websitejs.js && uglifyjs src/js/violinHero.js -o dist/js/violinHero.js  && uglifyjs src/js/note.js -o dist/js/note.js && uglifyjs src/js/pitchdetect2.js -o dist/js/pitchdetect2.js&& cp src/index.html dist/index.html && cp -a src/images/. dist/images/ && cp -a src/css/. dist/css/ && cp -a src/pages/. dist/ && cp -a src/js/. dist/js/ && git add -A && git commit -m \"adds dist\" && git push ",

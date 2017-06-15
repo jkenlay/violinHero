@@ -12,6 +12,7 @@ class Note {
 
         //ensuring it doesnt try to draw it if its outside the canvas width, the 50 is a buffer
 
+
         //TO DO need to add if X2 is less than canvas width, so once its gone past it
         //TO DO sharps and flats :)
         if(x<(canvasWidth+50)){
@@ -27,7 +28,27 @@ class Note {
             ctx.rect(x+2, y+2, x2, y2-4);
             ctx.stroke();
             ctx.closePath();
+
+
+            
+                    //sharp
+            console.log(this.note)
+            if(this.note.toString().indexOf('s')>-1){
+                console.log('note is a sharp')
+                ctx.fillStyle = "black";
+                ctx.font = "12px Arial";
+                ctx.fillText("#",x+20,y+20);
+            }
+
+            //flat
+            if(this.note.toString().indexOf('b')>-1){
+                console.log('note is a flat')
+                ctx.fillStyle = "black";
+                ctx.font = "12px Arial";
+                ctx.fillText("b",x+20,y+20);
+            }
         }
+
     }
     getDuration() {
         return this.duration;

@@ -112,10 +112,10 @@ var testNote3 = new Note('C3',100);
 notesForSong.push(testNote1);
 notesForSong.push(testNote2);
 notesForSong.push(testNote3);
-notesForSong.push(new Note('G1',100));
-notesForSong.push(new Note('A2',100));
-notesForSong.push(new Note('G1',100));
-notesForSong.push(new Note('A2',100));notesForSong.push(new Note('G1',100));
+notesForSong.push(new Note('G1s',100));
+notesForSong.push(new Note('A2s',100));
+notesForSong.push(new Note('G1b',100));
+notesForSong.push(new Note('A2b',100));notesForSong.push(new Note('G1',100));
 notesForSong.push(new Note('A2',100));
 
 var testSong = new Song(notesForSong);
