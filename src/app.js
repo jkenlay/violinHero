@@ -16,7 +16,7 @@ app.post('/update', function (req, res) {
         if(req.body.commits.message){
                     console.log('Commit: ' + req.body.commits.message);
         }
-        exec('sudo git pull && sudo forever restart src/app.js',execCallBack);
+        exec('sudo git pull',execCallBack);
         res.json({
             message: 'ok go!t ity!'
         });   
