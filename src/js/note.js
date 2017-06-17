@@ -3,19 +3,14 @@ class Note {
         this.note = inputNote;
         if(!inputDuration || inputDuration < 1) {
             throw new error('Duration less than one or doesnt exist');
-        }else{
+        } else {
             this.duration = inputDuration;
         }
     }
+
     draw(x,x2,y2,ctx) {
         let y = (this.getPositionOfNoteForStaves()*distanceBetweenNotes) + (distanceBetweenNotes * 5);
-
-        //ensuring it doesnt try to draw it if its outside the canvas width, the 50 is a buffer
-
-
-        //TO DO need to add if X2 is less than canvas width, so once its gone past it
-        //TO DO sharps and flats :)
-        if(x<(canvasWidth+50)){
+        if (x < (canvasWidth+50)) {
             ctx.beginPath();
             ctx.fillStyle = "blue";
             ctx.fillRect(x, y, x2, y2);
@@ -29,26 +24,20 @@ class Note {
             ctx.stroke();
             ctx.closePath();
 
-
-            
             //sharp
-            if(this.note.toString().indexOf('s')>-1){
-                console.log('note is a sharp')
+            if (this.note.toString().indexOf('s') >-1) {
                 ctx.fillStyle = "black";
                 ctx.font = "30px Arial";
                 ctx.fillText("#",x+10,y+30);
             }
 
             //flat
-            if(this.note.toString().indexOf('b')>-1){
-                console.log('SHOULD DRAW B')
+            if(this.note.toString().indexOf('b') >-1) {
                 ctx.fillStyle = "black";
                 ctx.font = "30px Arial";
-                console.log(y,x)
                 ctx.fillText("b",x+10,y+30);
             }
         }
-
     }
     getDuration() {
         return this.duration;
@@ -61,9 +50,7 @@ class Note {
         let noteToGet = this.getNote().replace(new RegExp("[a-z]", "g"), '');
 
         //get the 0-9 and times the position by this at the end.
-
         //noteToGet = noteToGet.replace(new RegExp("[a-z]", "g"), ''); 
-        console.log("note to get:" + noteToGet);
 
         for (var i = 0; i < notesForStaves.length; i++) {
             if (noteToGet == notesForStaves[i]) {

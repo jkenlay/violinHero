@@ -214,7 +214,6 @@ function drawStaves() {
     for (var i = 1; i <= totalNotesOnScreen; i++) {
         ctx.beginPath();
         ctx.moveTo(leftMarker, i * distanceBetweenNotes);
-        console.log(distanceBetweenNotes);
         ctx.lineTo(canvasWidth, i * distanceBetweenNotes);
         if ((i == 9) || (i == 11) || (i == 13) || (i == 15) || (i == 17)) {
             ctx.lineWidth = 3;
