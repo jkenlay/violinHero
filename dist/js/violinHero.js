@@ -54,8 +54,6 @@ Later on, colour settings etc. Remember for each person. Cookies or JS object in
 
 */
 
-
-
 /*
 format for now can be
 
@@ -75,6 +73,8 @@ each note has position in song!
 
 //THE SONG object will have a silent 400 period note at the start. Then other notes is added to it. which builds up its time.
 //its just a queue?
+
+change to promises......
 
 //notes could start off blue, then change to red or green depending on score.
 
@@ -158,7 +158,9 @@ function drawNote(positionFromLeft, inputNote) {
     inputNote.lowerDuration();
 }
 
-
+function inputFrequency(inputFreq){
+    console.log('input Freq: ' + inputFreq);
+}
 
 function verifyValidNote(inputNote) {
     var noteIsValid = false;

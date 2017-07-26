@@ -1,6 +1,7 @@
 class Note {
-    constructor(inputNote, inputDuration) {
+    constructor(inputNote, inputDuration,inputFrequency) {
         this.note = inputNote;
+        this.frequency = inputFrequency;
         if(!inputDuration || inputDuration < 1) {
             throw new error('Duration less than one or doesnt exist');
         } else {
@@ -44,6 +45,9 @@ class Note {
     }
     getNote() {
         return this.note;
+    }
+    getFrequency(){
+        return this.frequency;
     }
     getPositionOfNoteForStaves() {
         let position = -1;

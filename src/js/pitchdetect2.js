@@ -213,20 +213,18 @@ function noteFromPitch( frequency ) {
 	return Math.round( noteNum ) + 69;
       
 }
-function resetTimer(){
-    
-    setInterval(function(){
-        if(notesPerSecond>maxNotesPerSecond){
-            maxNotesPerSecond = notesPerSecond;
-        }
-        console.log("Loops per sec: " + maxNotesPerSecond);
-        notesPerSecond=0;
-    },1000);
-    
-    
-    
-}
-resetTimer();
+
+//This is awful, get rid of it.
+// function resetTimer(){
+//     setInterval(function(){
+//         if(notesPerSecond>maxNotesPerSecond){
+//             maxNotesPerSecond = notesPerSecond;
+//         }
+//         //console.log("Loops per seaaa: " + maxNotesPerSecond);
+//         notesPerSecond=0;
+//     },1000);
+// }
+// resetTimer();
 
 
 
@@ -376,7 +374,13 @@ function updatePitch( time ) {
  	} else {
 	 	detectorElem.className = "confident";
 	 	pitch = ac;
-	 	pitchElem.innerText = Math.round( pitch ) ;
+		pitchElem.innerText = Math.round( pitch ) ;
+
+		//from here, call the function in violinHero to update.
+		//console.log(pitch);
+
+		inputFrequency(pitch);
+
 	 	var note =  noteFromPitch( pitch );
 		noteElem.innerHTML = noteStrings[note%12];
 		var detune = centsOffFromPitch( pitch, note );

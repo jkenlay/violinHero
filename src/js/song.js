@@ -18,8 +18,6 @@ class Song {
             //first is left, second is top/ third is right //last one is bottom (from top) so height of note
             this.notes[i].draw((fromLeftMarker+(i*noteWidth)), noteWidth, noteHeight,ctx);
         }
-        
-
     }
     getNoteAtDuration(duration){
         //for each note, start looping through until we find the first note greater than the duration (a total)

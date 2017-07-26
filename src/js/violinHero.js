@@ -54,8 +54,6 @@ Later on, colour settings etc. Remember for each person. Cookies or JS object in
 
 */
 
-
-
 /*
 format for now can be
 
@@ -76,7 +74,20 @@ each note has position in song!
 //THE SONG object will have a silent 400 period note at the start. Then other notes is added to it. which builds up its time.
 //its just a queue?
 
+change to promises......
+
 //notes could start off blue, then change to red or green depending on score.
+
+Note Frequencies (got from http://hyperphysics.phy-astr.gsu.edu/hbase/Music/violin.html)
+
+G(3) = 196
+D(4) = 293.7
+A(4) = 440
+E(5) = 659.3
+
+http://pages.mtu.edu/~suits/notefreqs.html
+http://pages.mtu.edu/~suits/NoteFreqCalcs.html
+
 
 */
 var notes = ['B4', 'B4b', 'A4', 'G3s', 'G3', 'F3s', 'F3', 'E3', 'E3b', 'D3', 'C3s', 'C3', 'B3', 'B3b', 'A3', 'G2s', 'G2', 'F2s', 'F2', 'E2', 'E2b', 'D2', 'C2s', 'C2', 'B2', 'B2b', 'A2', 'G1s', 'G1'];
@@ -86,6 +97,26 @@ var c = document.getElementById('mainCanvas');
 var ctx = c.getContext('2d');
 var canvasHeight = c.getAttribute('height');
 var canvasWidth = c.getAttribute('width');
+
+function testPrintFrequencies(){
+    for(let i = notes.length; i>0;i--){
+        //let noteFreq = 
+        //console.log('note: ' + notes[i] + ' frequency: ' +  ntoes);
+    }
+}
+
+function getNoteFrequency(inputNote){
+    //notes above
+    //need to count how many positions away from lowest G the input note is.
+    //then work out the frequency from lowest G 196 hz
+    //use this as constructor for note :)
+    //then we have a notes frequency. 
+    //next then compare notes frequency and see 0 - 1 how far it is from the target note.
+    //depending on difficulty (subject to tolerance)
+    //then start the song :)
+    //github pro? make it private
+}
+
 
 //frequencybox:
 //main box
@@ -133,7 +164,6 @@ function drawSong(inputSong, leftMarker, ctx){
     inputSong.drawNotesFrom(notePlayMarker, noteHeight, noteWidth, ctx);
 }
 
-
 function drawBlockNote(positionFromLeft, inputNote) {
     var positionOnStaves = getPositionOfNoteForStaves(inputNote);
     positionOnStaves = positionOnStaves * distanceBetweenNotes;
@@ -158,6 +188,9 @@ function drawNote(positionFromLeft, inputNote) {
     inputNote.lowerDuration();
 }
 
+function inputFrequency(inputFreq){
+    console.log('input Freq: ' + inputFreq);
+}
 
 
 function verifyValidNote(inputNote) {
