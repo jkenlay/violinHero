@@ -108,9 +108,31 @@ function testPrintFrequencies(){
 function getNoteFrequency(inputNote){
     //notes above
     //need to count how many positions away from lowest G the input note is.
+
+    let distanceFromLowestG = -1;
+    for(let i = notes.length-1; i>0; i--){
+        console.log(notes[i]);
+        distanceFromLowestG++;
+        if(inputNote===notes[i]){
+            break;
+        }
+    }
+
+    // a = (2)1/12
+    // let a = 196 * Math.pow(2,1/12); //1 note up
+    // let b = 196 * Math.pow(2,2/12); // 2 notes up
+    // let c = 196 * Math.pow(2,3/12); // 3 notes up
+
+    let frequency = 196 * Math.pow(2,distanceFromLowestG/12); // 3 notes up
+    
+    //console.log('frequency: ' + frequency);
     //then work out the frequency from lowest G 196 hz
+    return frequency;
+
     //use this as constructor for note :)
     //then we have a notes frequency. 
+
+    //TODO:
     //next then compare notes frequency and see 0 - 1 how far it is from the target note.
     //depending on difficulty (subject to tolerance)
     //then start the song :)
@@ -136,18 +158,19 @@ var widthBetweenNotes = (canvasWidth-notePlayMarker) / notesOnScreenWidthways; /
 //song
 //var gameSong = new Song();
 var notesForSong = [];
-var testNote1 = new Note('A4s',100);
-var testNote2 = new Note('B3b',100);
-var testNote3 = new Note('C3s',100);
+var testNote1 = new Note('A4s',100,getNoteFrequency('A4s'));
+var testNote2 = new Note('B3b',100,getNoteFrequency('A4s'));
+var testNote3 = new Note('C3s',100,getNoteFrequency('A4s'));
 
 notesForSong.push(testNote1);
 notesForSong.push(testNote2);
 notesForSong.push(testNote3);
-notesForSong.push(new Note('G1b',100));
-notesForSong.push(new Note('A2b',100));
-notesForSong.push(new Note('G1b',100));
-notesForSong.push(new Note('A2b',100));notesForSong.push(new Note('G1',100));
-notesForSong.push(new Note('A2',100));
+// notesForSong.push(new Note('G1b',100));
+// notesForSong.push(new Note('A2b',100));
+// notesForSong.push(new Note('G1b',100));
+// notesForSong.push(new Note('A2b',100));
+// notesForSong.push(new Note('G1',100));
+// notesForSong.push(new Note('A2',100));
 
 var testSong = new Song(notesForSong);
 

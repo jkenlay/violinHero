@@ -1,5 +1,8 @@
 class Note {
     constructor(inputNote, inputDuration,inputFrequency) {
+        if(!inputFrequency){
+            throw new Error('No Input Frequency for Note');
+        }
         this.note = inputNote;
         this.frequency = inputFrequency;
         if(!inputDuration || inputDuration < 1) {

@@ -377,8 +377,6 @@ function updatePitch( time ) {
 		pitchElem.innerText = Math.round( pitch ) ;
 
 		//from here, call the function in violinHero to update.
-		//console.log(pitch);
-
 		inputFrequency(pitch);
 
 	 	var note =  noteFromPitch( pitch );
