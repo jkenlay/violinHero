@@ -220,19 +220,16 @@ function inputFrequency(inputFreq){
     console.log('current freqency: ' + inputFreq);
     console.log('frequency needed: ' + frequencyNeed);
 
-    isNoteAMatch(196,392)
+    measureDistanceBetweenNotes(196,392)
     //console.log('Should be 1 or 12: ' + isNoteAMatch(196,392));
     //need the log function 
     //if distance from inputfreq/current < difficulty
     //note.play (and then redraw)
 }
 
-function isNoteAMatch(inputfreq, currentFreq){ 
-    //let testA = Math.log(2*(1/12));
-    let testA = 12*(Math.log(inputfreq/currentFreq));
-    console.log('Test: '+testA);
+function measureDistanceBetweenNotes(inputfreq, currentFreq){ 
+    return 12*(Math.log2(inputfreq/currentFreq));
 }
-inputFrequency();
 
 function verifyValidNote(inputNote) {
     var noteIsValid = false;
