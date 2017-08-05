@@ -10,6 +10,7 @@ class Note {
         } else {
             this.duration = inputDuration;
         }
+        this.health = inputDuration;
     }
 
     draw(x,x2,y2,ctx) {
@@ -51,6 +52,12 @@ class Note {
     }
     getFrequency(){
         return this.frequency;
+    }
+    getHealth(){
+        return this.health;
+    }
+    noteBeingPlayed(){
+        this.health--;
     }
     getPositionOfNoteForStaves() {
         let position = -1;

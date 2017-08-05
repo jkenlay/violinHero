@@ -212,9 +212,27 @@ function drawNote(positionFromLeft, inputNote) {
 }
 
 function inputFrequency(inputFreq){
-    console.log('input Freq: ' + inputFreq);
+
+
+    //note needed
+    let currentFreqBeingPlay = inputFreq;
+    let frequencyNeed = testSong.getCurrentNotesFrequency();
+    console.log('current freqency: ' + inputFreq);
+    console.log('frequency needed: ' + frequencyNeed);
+
+    isNoteAMatch(196,392)
+    //console.log('Should be 1 or 12: ' + isNoteAMatch(196,392));
+    //need the log function 
+    //if distance from inputfreq/current < difficulty
+    //note.play (and then redraw)
 }
 
+function isNoteAMatch(inputfreq, currentFreq){ 
+    //let testA = Math.log(2*(1/12));
+    let testA = 12*(Math.log(inputfreq/currentFreq));
+    console.log('Test: '+testA);
+}
+inputFrequency();
 
 function verifyValidNote(inputNote) {
     var noteIsValid = false;

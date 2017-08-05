@@ -1,6 +1,7 @@
 class Song {
     constructor(inputNotes) {
         this.notes = inputNotes;//array of notes
+        this.tracker = 0;
     }
     getTotalDuration() {
         var totalDuration = 0;
@@ -22,5 +23,21 @@ class Song {
     getNoteAtDuration(duration){
         //for each note, start looping through until we find the first note greater than the duration (a total)
     }
-    
+    getCurrentNotesFrequency(){
+        let currentFrequency = -1;
+        for(var i = 0; i<this.notes.length; i++){
+            if(this.notes[i].getHealth()===this.notes[i].getDuration()){
+                //its a full note
+                currentFrequency = this.notes[i].getFrequency();
+                break;
+            }else{
+                if(this.notes[i].getHealth()!==0){
+                    //it's not an empty note
+                    currentFrequency = this.notes[i].getFrequency();
+                    break;
+                }
+            }
+        }
+        return currentFrequency;
+    }
 }

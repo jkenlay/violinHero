@@ -1,11 +1,16 @@
 class Note {
-    constructor(inputNote, inputDuration) {
+    constructor(inputNote, inputDuration,inputFrequency) {
+        if(!inputFrequency){
+            throw new Error('No Input Frequency for Note');
+        }
         this.note = inputNote;
+        this.frequency = inputFrequency;
         if(!inputDuration || inputDuration < 1) {
             throw new error('Duration less than one or doesnt exist');
         } else {
             this.duration = inputDuration;
         }
+        this.health = inputDuration;
     }
 
     draw(x,x2,y2,ctx) {
@@ -44,6 +49,15 @@ class Note {
     }
     getNote() {
         return this.note;
+    }
+    getFrequency(){
+        return this.frequency;
+    }
+    getHealth(){
+        return this.health;
+    }
+    noteBeingPlayed(){
+        this.health--;
     }
     getPositionOfNoteForStaves() {
         let position = -1;
