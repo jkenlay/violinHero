@@ -220,7 +220,7 @@ function inputFrequency(inputFreq){
     console.log('current freqency: ' + inputFreq);
     console.log('frequency needed: ' + frequencyNeed);
 
-    measureDistanceBetweenNotes(196,392)
+    let distance = measureDistanceBetweenNotes(196,392)
     //console.log('Should be 1 or 12: ' + isNoteAMatch(196,392));
     //need the log function 
     //if distance from inputfreq/current < difficulty
@@ -276,6 +276,7 @@ function drawNotePlayMarker() {
 }
 
 function drawTrebleClef() {
+    console.log('drawing');
     ctx.globalAlpha = 0.2;
     ctx.drawImage(img, leftMarker - 27, 50);
     ctx.globalAlpha = 1;
