@@ -254,6 +254,7 @@ function drawLeftMarker() {
     ctx.lineTo(leftMarker, canvasHeight);
     ctx.stroke();
     ctx.closePath();
+    return Promise.resolve();
 }
 
 function drawLeftMarkerCenterLine() {
@@ -264,6 +265,7 @@ function drawLeftMarkerCenterLine() {
     ctx.lineTo(leftMarker, (canvasHeight / 2));
     ctx.stroke();
     ctx.closePath();
+    return Promise.resolve();
 }
 
 function drawNotePlayMarker() {
@@ -274,6 +276,7 @@ function drawNotePlayMarker() {
     ctx.lineTo(notePlayMarker, canvasHeight);
     ctx.stroke();
     ctx.closePath();
+    return Promise.resolve();
 }
 
 function drawTrebleClef() {
@@ -302,6 +305,7 @@ function drawStaves() {
             }
         }
     }
+    return Promise.resolve();
 }
 
 function drawMinim(x, y) {
@@ -339,10 +343,10 @@ function drawCrotchet(x, y) {
     fillCrochetOval(x, y);
 }
 
-drawStaves();
-drawLeftMarker();
-drawLeftMarkerCenterLine();
-drawNotePlayMarker();
+drawStaves()
+.then(drawLeftMarker())
+.then(drawLeftMarkerCenterLine())
+.then(drawNotePlayMarker());
 
 drawSong(testSong, notePlayMarker, ctx).then(()=>{
     drawTrebleClef();
