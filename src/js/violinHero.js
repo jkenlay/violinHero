@@ -185,6 +185,7 @@ function drawSong(inputSong, leftMarker, ctx){
     let noteWidth = 200;
     let noteHeight = distanceBetweenNotes*2;
     inputSong.drawNotesFrom(notePlayMarker, noteHeight, noteWidth, ctx);
+    return Promise.resolve();
 }
 
 function drawBlockNote(positionFromLeft, inputNote) {
@@ -343,8 +344,10 @@ drawLeftMarker();
 drawLeftMarkerCenterLine();
 drawNotePlayMarker();
 
-drawSong(testSong, notePlayMarker, ctx);
-drawTrebleClef();
+drawSong(testSong, notePlayMarker, ctx).then(()=>{
+    drawTrebleClef();
+});
+
 
 //test vars
 // var testNote1 = new Note("B4", 100, 100);
