@@ -98,6 +98,11 @@ var ctx = c.getContext('2d');
 var canvasHeight = c.getAttribute('height');
 var canvasWidth = c.getAttribute('width');
 
+// 1 = easy
+// 0.5 = normal
+// 0.25 = hard?
+let difficulty = 2;
+
 function testPrintFrequencies(){
     for(let i = notes.length; i>0;i--){
         //let noteFreq = 
@@ -110,10 +115,10 @@ function getNoteFrequency(inputNote){
     //need to count how many positions away from lowest G the input note is.
 
     let distanceFromLowestG = -1;
-    for(let i = notes.length-1; i>0; i--){
+    for (let i = notes.length-1; i>0; i--) {
         console.log(notes[i]);
         distanceFromLowestG++;
-        if(inputNote===notes[i]){
+        if (inputNote===notes[i]) {
             break;
         }
     }
@@ -158,9 +163,9 @@ var widthBetweenNotes = (canvasWidth-notePlayMarker) / notesOnScreenWidthways; /
 //song
 //var gameSong = new Song();
 var notesForSong = [];
-var testNote1 = new Note('A4s',100,getNoteFrequency('A4s'));
-var testNote2 = new Note('B3b',100,getNoteFrequency('A4s'));
-var testNote3 = new Note('C3s',100,getNoteFrequency('A4s'));
+var testNote1 = new Note('A4s',200,getNoteFrequency('A4s'));
+var testNote2 = new Note('B3b',200,getNoteFrequency('A4s'));
+var testNote3 = new Note('C3s',200,getNoteFrequency('A4s'));
 
 notesForSong.push(testNote1);
 notesForSong.push(testNote2);
@@ -171,64 +176,82 @@ notesForSong.push(testNote3);
 // notesForSong.push(new Note('A2b',100));
 // notesForSong.push(new Note('G1',100));
 // notesForSong.push(new Note('A2',100));
-
-var testSong = new Song(notesForSong);
+let noteWidth = 200;
+let noteHeight = distanceBetweenNotes*2;
+var testSong = new Song(notesForSong, noteHeight, noteWidth, notePlayMarker, ctx);
 
 
 
 //treble cleff
 var img = document.getElementById("trebleClef");
 
-function drawSong(inputSong, leftMarker, ctx){
-    //move to the first line to draw at, the note line.
-    //then looping through the song, draw each note
-    let noteWidth = 200;
-    let noteHeight = distanceBetweenNotes*2;
-    inputSong.drawNotesFrom(notePlayMarker, noteHeight, noteWidth, ctx);
+function drawSong(inputSong, ctx) {
+    inputSong.drawNotes();
     return Promise.resolve();
 }
 
-function drawBlockNote(positionFromLeft, inputNote) {
-    var positionOnStaves = getPositionOfNoteForStaves(inputNote);
-    positionOnStaves = positionOnStaves * distanceBetweenNotes;
+// function drawBlockNote(positionFromLeft, inputNote) {
+//     var positionOnStaves = getPositionOfNoteForStaves(inputNote);
+//     positionOnStaves = positionOnStaves * distanceBetweenNotes;
 
-    drawBlockNoteBody(notePlayMarker + (positionFromLeft * widthBetweenNotes),positionOnStaves);
-}
+//     drawBlockNoteBody(notePlayMarker + (positionFromLeft * widthBetweenNotes),positionOnStaves);
+// }
 
-function drawBlockNoteBody(x,y) {
-    ctx.beginPath();
-    ctx.fillRect(x, (distanceBetweenNotes * 6) + y, widthBetweenNotes, distanceBetweenNotes*2);
-    ctx.stroke();
-    ctx.closePath();
-}
+// function drawBlockNoteBody(x,y) {
+//     ctx.beginPath();
+//     ctx.fillRect(x, (distanceBetweenNotes * 6) + y, widthBetweenNotes, distanceBetweenNotes*2);
+//     ctx.stroke();
+//     ctx.closePath();
+// }
 
-function drawNote(positionFromLeft, inputNote) {
-    var positionOnStaves = getPositionOfNoteForStaves(inputNote);
-    positionOnStaves = positionOnStaves * distanceBetweenNotes;
+// function drawNote(positionFromLeft, inputNote) {
+//     var positionOnStaves = getPositionOfNoteForStaves(inputNote);
+//     positionOnStaves = positionOnStaves * distanceBetweenNotes;
 
-    var timingDrawingBuffer = songDrawingTimer;
+//     var timingDrawingBuffer = songDrawingTimer;
 
-    drawMinim(notePlayMarker + (positionFromLeft * widthBetweenNotes) - timingDrawingBuffer, (distanceBetweenNotes * 6) + positionOnStaves);
-    inputNote.lowerDuration();
-}
+//     drawMinim(notePlayMarker + (positionFromLeft * widthBetweenNotes) - timingDrawingBuffer, (distanceBetweenNotes * 6) + positionOnStaves);
+//     inputNote.lowerDuration();
+// }
 
-function inputFrequency(inputFreq){
+function inputFrequency(inputFreq) {
 
 
     //note needed
     let currentFreqBeingPlay = inputFreq;
     let frequencyNeed = testSong.getCurrentNotesFrequency();
-    console.log('current freqency: ' + inputFreq);
-    console.log('frequency needed: ' + frequencyNeed);
+    //console.log('current freqency: ' + inputFreq);
+    //console.log('frequency needed: ' + frequencyNeed);
 
-    let distance = measureDistanceBetweenNotes(196,392)
+    let distance = measureDistanceBetweenNotes(inputFreq,frequencyNeed);
+
+    console.log('distance is: ' + Math.abs(distance));
+
+    let x = testSong.getCurrentNoteIndex();
+    console.log('current note: ' + x);
+
+    if(Math.abs(distance)<difficulty) {
+        console.log('playing correct note');
+        //draw game
+  
+        clearCanvas();
+        drawStaves()
+        .then(drawLeftMarker())
+        .then(drawLeftMarkerCenterLine())
+        .then(drawNotePlayMarker());
+        testSong.increaseProgress();
+    } else {
+        console.log('no playing correct note');
+    }
     //console.log('Should be 1 or 12: ' + isNoteAMatch(196,392));
     //need the log function 
     //if distance from inputfreq/current < difficulty
     //note.play (and then redraw)
 }
-
-function measureDistanceBetweenNotes(inputfreq, currentFreq){ 
+function clearCanvas() {
+    ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+}
+function measureDistanceBetweenNotes(inputfreq, currentFreq) {
     return 12*(Math.log2(inputfreq/currentFreq));
 }
 
@@ -348,7 +371,7 @@ drawStaves()
 .then(drawLeftMarkerCenterLine())
 .then(drawNotePlayMarker());
 
-drawSong(testSong, notePlayMarker, ctx).then(()=>{
+drawSong(testSong, ctx).then(() => {
     drawTrebleClef();
 });
 
