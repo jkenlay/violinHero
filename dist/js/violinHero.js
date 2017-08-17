@@ -111,9 +111,6 @@ function testPrintFrequencies(){
 }
 
 function getNoteFrequency(inputNote){
-    //notes above
-    //need to count how many positions away from lowest G the input note is.
-
     let distanceFromLowestG = -1;
     for (let i = notes.length-1; i>0; i--) {
         console.log(notes[i]);
@@ -122,26 +119,8 @@ function getNoteFrequency(inputNote){
             break;
         }
     }
-
-    // a = (2)1/12
-    // let a = 196 * Math.pow(2,1/12); //1 note up
-    // let b = 196 * Math.pow(2,2/12); // 2 notes up
-    // let c = 196 * Math.pow(2,3/12); // 3 notes up
-
-    let frequency = 196 * Math.pow(2,distanceFromLowestG/12); // 3 notes up
-    
-    //console.log('frequency: ' + frequency);
-    //then work out the frequency from lowest G 196 hz
+    let frequency = 196 * Math.pow(2,distanceFromLowestG/12);
     return frequency;
-
-    //use this as constructor for note :)
-    //then we have a notes frequency. 
-
-    //TODO:
-    //next then compare notes frequency and see 0 - 1 how far it is from the target note.
-    //depending on difficulty (subject to tolerance)
-    //then start the song :)
-    //github pro? make it private
 }
 
 
@@ -149,7 +128,7 @@ function getNoteFrequency(inputNote){
 //main box
 var notesBoxHeight = canvasHeight;
 var leftLine = 10; //% of the entire width the left line takes up 
-var leftMarker = (canvasWidth / 100) * leftLine;
+var leftMarker = (canvasWidth / 200) * leftLine;
 var notePlayline = 30;
 var notePlayMarker = (canvasWidth / 100) * notePlayline;
 
@@ -164,8 +143,8 @@ var widthBetweenNotes = (canvasWidth-notePlayMarker) / notesOnScreenWidthways; /
 //var gameSong = new Song();
 var notesForSong = [];
 var testNote1 = new Note('A4s',200,getNoteFrequency('A4s'));
-var testNote2 = new Note('B3b',200,getNoteFrequency('A4s'));
-var testNote3 = new Note('C3s',200,getNoteFrequency('A4s'));
+var testNote2 = new Note('B3b',200,getNoteFrequency('B3b'));
+var testNote3 = new Note('C3s',200,getNoteFrequency('C3s'));
 
 notesForSong.push(testNote1);
 notesForSong.push(testNote2);
@@ -220,8 +199,8 @@ function inputFrequency(inputFreq) {
     //note needed
     let currentFreqBeingPlay = inputFreq;
     let frequencyNeed = testSong.getCurrentNotesFrequency();
-    //console.log('current freqency: ' + inputFreq);
-    //console.log('frequency needed: ' + frequencyNeed);
+    console.log('current freqency: ' + inputFreq);
+    console.log('frequency needed: ' + frequencyNeed);
 
     let distance = measureDistanceBetweenNotes(inputFreq,frequencyNeed);
 
@@ -243,10 +222,7 @@ function inputFrequency(inputFreq) {
     } else {
         console.log('no playing correct note');
     }
-    //console.log('Should be 1 or 12: ' + isNoteAMatch(196,392));
-    //need the log function 
-    //if distance from inputfreq/current < difficulty
-    //note.play (and then redraw)
+
 }
 function clearCanvas() {
     ctx.clearRect(0, 0, canvasWidth, canvasHeight);

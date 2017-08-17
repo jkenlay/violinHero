@@ -41,20 +41,24 @@ class Song {
         }
     }
     getCurrentNotesFrequency(){
-        let currentFrequency = -1;
-        for(var i = 0; i<this.notes.length; i++){
-            if(this.notes[i].getHealth()===this.notes[i].getDuration()){
-                //its a full note
-                currentFrequency = this.notes[i].getFrequency();
-                break;
-            }else{
-                if(this.notes[i].getHealth()!==0){
-                    //it's not an empty note
-                    currentFrequency = this.notes[i].getFrequency();
-                    break;
-                }
-            }
-        }
-        return currentFrequency;
+        let currentNoteIndex = this.getCurrentNoteIndex();
+        return this.notes[currentNoteIndex].getFrequency();
     }
+    // getCurrentNotesFrequency(){
+    //     let currentFrequency = -1;
+    //     for(var i = 0; i<this.notes.length; i++){
+    //         if(this.notes[i].getHealth()===this.notes[i].getDuration()){
+    //             //its a full note
+    //             currentFrequency = this.notes[i].getFrequency();
+    //             break;
+    //         }else{
+    //             if(this.notes[i].getHealth()!==0){
+    //                 //it's not an empty note
+    //                 currentFrequency = this.notes[i].getFrequency();
+    //                 break;
+    //             }
+    //         }
+    //     }
+    //     return currentFrequency;
+    // }
 }
